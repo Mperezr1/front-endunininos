@@ -15,8 +15,8 @@ import { mapToExpression } from '@angular/compiler/src/render3/view/util';
 
 export class ConsultasService {
 
-  readonly URL = "api/consultas";
-  readonly URL2 = "api/asignacionGrupos";
+  readonly URL = "https://safe-cliffs-35380.herokuapp.com/api/consultas";
+  readonly URL2 = "https://safe-cliffs-35380.herokuapp.com/api/asignacionGrupos";
   //public participantes: Participante[] = [];
   participantes: ParticipantePrueba[] = [];
 

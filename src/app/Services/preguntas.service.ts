@@ -8,8 +8,8 @@ import { nextTick } from "q";
 
 export class PreguntasService {
 
-    readonly URL = "api/preguntas";
-    readonly URLE = "api/preguntas/modificar-Eliminar";
+    readonly URL = "https://safe-cliffs-35380.herokuapp.com/api/preguntas";
+    readonly URLE = "https://safe-cliffs-35380.herokuapp.com/api/preguntas/modificar-Eliminar";
     preguntas: PreguntasModel[] = [];
     preguntaEliminar: PreguntasModel[] = [];
     private participantesUpdated = new Subject<PreguntasModel[]>();

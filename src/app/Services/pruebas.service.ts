@@ -11,7 +11,7 @@ import {Grupo} from "../Models/Pruebas/grupoPrueba.model";
 export class PruebasService {
 
 
-  readonly URL = "api/consultas";
+  readonly URL = "https://safe-cliffs-35380.herokuapp.com/api/consultas";
   private participantes: ParticipantePrueba[] = [];
   private participantesUpdated = new Subject<ParticipantePrueba[]>();
   

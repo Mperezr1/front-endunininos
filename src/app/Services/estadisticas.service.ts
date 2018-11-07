@@ -17,7 +17,7 @@ constructor(private http: HttpClient) { }
 //Se congen los datos del back-end
 getEstadisticasColegios() {
 
-  this.http.get<{ message: string; posts: EstadisticaColegios[] }>( 'api/estadisticasList' )
+  this.http.get<{ message: string; posts: EstadisticaColegios[] }>( 'https://safe-cliffs-35380.herokuapp.com/api/estadisticasList' )
       .subscribe(postData => {
         this.estadisticasColegios = postData.posts;
         this.estadisticasColegiosUpdated.next([...this.estadisticasColegios]);
@@ -44,7 +44,7 @@ postConsultaEstadistica(
     barChartData: barCharDataIn
   }
   this.http
-    .post<{ message: string }>("api/estadisticasCreate", post)
+    .post<{ message: string }>("https://safe-cliffs-35380.herokuapp.com/api/estadisticasCreate", post)
     .subscribe(responseData => {
       console.log(responseData.message);
     });

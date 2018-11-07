@@ -13,7 +13,7 @@ export class DescargaDatosService {
  
    
   constructor(private http: HttpClient) { }
-  readonly URL = "api/descarga";
+  readonly URL = "https://safe-cliffs-35380.herokuapp.com/api/descarga";
   descargaParticipantesService(fileName:string)  {
     var body = { filename: fileName};
     console.log("entra al servicio")
