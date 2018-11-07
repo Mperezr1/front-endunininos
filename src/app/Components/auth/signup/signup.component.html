@@ -1,0 +1,31 @@
+<mat-card>
+    <form (submit)="onSignup(loginForm)" #loginForm="ngForm">
+      <mat-form-field>
+            <input name="nombre" ngModel matInput placeholder="Nombre(s)" #nombreInput="ngModel" required>
+            <mat-error *ngIf="nombreInput.invalid">Ingrese un nombre(s).</mat-error>
+      </mat-form-field>
+      <mat-form-field>
+              <input name="apellido" ngModel matInput placeholder="Apellido(s)" #apellInput="ngModel" required>
+              <mat-error *ngIf="apellInput.invalid">Ingrese un apellido(s).</mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <input name="documento" ngModel matInput placeholder="Numero de documento" #documentoInput="ngModel" type="number" required>
+        <mat-error *ngIf="documentoInput.invalid">Ingrese su numero de documento.</mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <input name="contacto" ngModel matInput placeholder="Numero de contacto" #contactoInput="ngModel" type="number">
+        <mat-error *ngIf="contactoInput.invalid">Ingrese su numero de contacto.</mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput name="email" ngModel type="email" placeholder="Correo Electronico" #emailInput="ngModel" required email>
+        <mat-error *ngIf="emailInput.invalid">Ingrese un e-mail valido.</mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <input type="password" name="password" ngModel matInput placeholder="Contraseña" #passwordInput="ngModel" required>
+        <mat-error *ngIf="passwordInput.invalid">Ingrese una contraseña.</mat-error>
+      </mat-form-field>
+  
+      <button mat-raised-button color="primary" type="submit"> Registrarse. </button>
+  
+    </form>
+  </mat-card>

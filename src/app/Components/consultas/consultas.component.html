@@ -1,0 +1,57 @@
+<!-- The sidebar -->
+
+<div class="sidebar">
+  <a routerLink='/consultasNombre' routerLinkActive="active">Consultar por nombre
+  </a>
+  <a routerLink='/consultasDocumento' routerLinkActive="active">Consultar por documento
+  </a>
+  <a routerLink='/consultasColegio' routerLinkActive="active">Consultar por colegio
+  </a>
+  <a routerLink='/consultasGrupo' routerLinkActive="active">Consultar por grupo
+  </a>
+  <a routerLink= '/asignacionGrupos' routerLinkActive="active">Asignación de grupos</a>
+  <a routerLink= '/consultas' routerLinkActive="active">Crear Grupo</a>
+  <a routerLink= '/descarga' routerLinkActive="active">Descargas</a>
+
+</div>
+
+<div class="content">       
+<!--
+  <h1 style="text-align:center">Agregar Participante Prueba</h1>
+  <form #consultasForm="ngForm" (submit)="agregarParticipantePrueba(consultasForm)">
+        <mat-card>
+
+        <mat-form-field>
+                
+                <input matInput type="text" class="form-control" id="Nombre" name="nombre" placeholder="Nombre" ngModel>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input matInput type="text" class="form-control" id="NumeroDoc" name="documento" placeholder="Número Documento" ngModel>
+        </mat-form-field>
+           
+        <mat-form-field>
+            <input matInput type="text" class="form-control" id="Grupo" name="grupo" placeholder="Grupo" ngModel>
+        </mat-form-field>
+    
+        <mat-form-field>
+          <input matInput type="text" class="form-control" id="Colegio" name="colegio" placeholder="Colegio" ngModel>
+        </mat-form-field>
+       <button raised-button color="primary" type="submit"  (click)='realizarConsulta()'>Submit</button>
+</mat-card>
+    </form>
+    
+-->
+  <h1 style="text-align:center">Agregar Grupo Prueba</h1>
+  <form #consultasForm="ngForm" (submit)="agregarGrupoPrueba(consultasForm)">
+        <mat-card>
+
+        <mat-form-field>
+                
+                <input matInput type="text" class="form-control" id="Grupo" name="codigoGrupo" placeholder="Grupo" ngModel>
+        </mat-form-field>
+
+       <button raised-button color="primary" type="submit" class="btn btn-primary" >Submit</button>
+       </mat-card>
+    </form>
+</div>

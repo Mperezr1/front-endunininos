@@ -1,0 +1,18 @@
+<div class="sidebar">
+    <a routerLink='/estadisticasCreate' routerLinkActive="active">Crear estadisticas
+    </a>
+    <a routerLink='/estadisticasList' routerLinkActive="active">Consulatar estadisticas
+    </a>
+</div>
+
+<script src="node_modules/chart.js/src/chart.js"></script>
+<div layout-align='center center' layout='column'> 
+    <canvas 
+            *ngFor="let test of listForCanvasBarras"
+            baseChart
+            [datasets]= "test.barChartData"
+            [labels]="test.barChartLabels"
+            [legend]="test.barChartLenged"
+            [chartType]="test.barChartType"
+            ></canvas>
+</div>

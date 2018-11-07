@@ -1,0 +1,22 @@
+<div class="sidebar">
+    <a routerLink='/modificar-Agregar' routerLinkActive="active">Agregar
+    </a>
+    <a routerLink='/modificar-Eliminar' routerLinkActive="active">Eliminar
+    </a>
+    <a routerLink='/preguntas' routerLinkActive="active">Terminar
+    </a>
+</div>
+<div class="content">
+        <h1 style="text-align:center">Eliminar Preguntas</h1>
+        <p>Si deseas eliminar una pregunta, has click en eliminar y copia la pregunta a eliminar.</p>
+
+    <form (submit)="deletePost(postForm)"  #postForm= "ngForm"> 
+            <h3>Eliminar Pregunta</h3>             
+        <mat-form-field>
+            
+            <input matInput type="text" class="form-control" id="PreguntaE" name="preguntaE" placeholder="Pregunta" #preguntaE= "ngModel" ngModel>
+        </mat-form-field>
+        <button mat-raised-button color="primary" type="submit" class="btn btn-primary">Eliminar</button>
+    </form>
+</div>
+

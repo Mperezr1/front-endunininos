@@ -1,0 +1,19 @@
+<mat-card *ngIf="!userIsAuth">
+  <form (submit)="onLogin(loginForm)" #loginForm="ngForm">
+    <mat-form-field>
+      <input matInput name="email" ngModel type="email" placeholder="Correo Electronico" #emailInput="ngModel" required email>
+      <mat-error *ngIf="emailInput.invalid">Ingrese un e-mail valido.</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input type="password" name="password" ngModel matInput placeholder="Contraseña" #passwordInput="ngModel" required>
+      <mat-error *ngIf="passwordInput.invalid">Ingrese una contraseña.</mat-error>
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" type="submit"> Acceder. </button>
+
+  </form>
+</mat-card>
+
+<mat-card *ngIf="userIsAuth">
+  <h2 style="margin: auto;"> Usuario Accedio Exitosamente! </h2>
+</mat-card>

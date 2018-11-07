@@ -1,0 +1,28 @@
+<div class="sidebar">
+    <a routerLink='/modificar-Agregar' routerLinkActive="active">Agregar
+    </a>
+    <a routerLink='/modificar-Eliminar' routerLinkActive="active">Eliminar
+    </a>
+    <a routerLink='/preguntas' routerLinkActive="active">Terminar
+    </a>
+  </div>
+    <div class="content">
+        <h1 style="text-align:center">Añadir Pregunta</h1>
+        <p>Si deseas añadir una pregunta, copia  la pregunta, con su respectiva respuesta y da click en añadir.</p>
+
+      <form (submit)="AddPost(postForm)"  #postForm= "ngForm">
+        <h3>Añadir Pregunta</h3>
+        <mat-form-field>
+
+            <input matInput type="text" class="form-control" id="Pregunta" name="pregunta" placeholder="Pregunta" #pregunta = "ngModel" ngModel>
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+
+            <input matInput type="text" class="form-control" id="Respuesta" name="respuesta" placeholder="Respuesta" #respuesta = "ngModel" ngModel>
+        </mat-form-field>
+        <br>
+        <button mat-raised-button color="primary" type="submit" class="btn btn-primary">Agregar</button>
+      </form>
+  </div>
+

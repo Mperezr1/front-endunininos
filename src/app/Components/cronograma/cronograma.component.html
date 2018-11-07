@@ -1,0 +1,67 @@
+
+<div class="sidebar">
+  <a routerLink='/cronogramaModificar' routerLinkActive="active">Modificar Cronograma
+  </a>
+</div>
+
+<div class="content">       
+  <h2>Cronograma</h2>
+
+  <form (submit)="getCronograma(formularioConsulta)"  #formularioConsulta= "ngForm">
+      <mat-card>
+      <mat-form-field>
+          <input matInput type="text" class="form-control" id="Programa" name="programa" placeholder="Ejemplo: Programa 1" ngModel>
+        </mat-form-field>
+
+      <button mat-raised-button color="primary" type="submit" class="btn btn-primary">Enviar</button>
+      </mat-card>
+  </form>
+
+  
+  <div class="col s7">
+      <table class="striped highlight black-text">
+        <thead>
+          <th>Programa</th>
+          <th>Actividad</th>
+          <th>Fecha</th>
+        </thead>
+        <tbody>
+          <tr *ngFor="let actividad of cronogramaService.actividades">
+            <td>{{ programaActual }}</td>
+            <td>{{ actividad.nombre }}</td>
+            <td>{{ actividad.fecha | date:'mediumDate' }}</td>
+            <td>
+              <a (click)="borrarActividad(actividad)">
+                <i class="material-icons">delete</i>
+              </a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <br>
+      <br>
+  </div>
+
+  <div> 
+  <button mat-raised-button color="primary" type="add" class="btn btn-primary">Agregar Actividad</button>
+  <br>
+  </div> 
+  <div> 
+    <form (submit)="agregarActividad(formularioAgregar)"  #formularioAgregar= "ngForm">
+        <mat-card>
+        <mat-form-field>
+            <input matInput type="text" class="form-control" id="Programa" name="programa" placeholder="Ejemplo: Programa 1" ngModel>
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput type="text" class="form-control" id="Nombre" name="nombre" placeholder="Ejemplo: Investigación" ngModel>
+        </mat-form-field>
+        <mat-form-field>
+            <input mat-date-input type="date" class="form-control" id="Fecha" name="fecha" placeholder="Ejemplo: 01/07/2004" ngModel>
+          </mat-form-field>
+
+        <button mat-raised-button color="primary" type="submit" class="btn btn-primary">Enviar</button>
+       </mat-card>
+    </form>
+  </div>
+
+</div>

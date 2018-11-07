@@ -1,0 +1,23 @@
+<div class="content">
+
+  <form (submit)="putPreguntas(postForm)"  #postForm= "ngForm">
+          
+    <div class="col s7">
+      <table class="striped highlight black-text">
+        <thead>
+          <th>Pregunta</th>
+          <th>Respuesta</th>
+        </thead>
+        <tbody>
+          <tr *ngFor="let pregunta of preguntasService.preguntas">
+            <td>{{ pregunta.pregunta }}</td>
+            <td>{{ pregunta.respuesta }}</td>
+            <td>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </form>
+  <button mat-raised-button color="primary" type="submit" class="btn btn-primary" routerLink='/modificar' routerLinkActive="active">Modificar</button>
+</div>

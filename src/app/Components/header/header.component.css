@@ -1,0 +1,21 @@
+.example-fill-remaining-space {
+    flex: 0.01 auto;
+  }
+
+a:link, a:visited {
+    background-color: transparent;
+    color: white;
+    padding: 14px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    
+}
+
+a:hover, a:active {
+    background-color: transparent ;
+}
+
+li {
+    align-content: right;
+}

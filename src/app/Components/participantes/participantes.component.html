@@ -1,0 +1,224 @@
+<mat-tab-group>
+  <mat-tab label="Registro de nuevos participantes">
+
+  <h1 style="text-align:center">Registro nuevos participantes</h1>
+<form (submit)="onAddPost(postForm)"  #postForm= "ngForm"> 
+  <mat-card>
+  <mat-form-field>
+    <input matInput type="text" class="form-control" id="Nombre" name="nombre" placeholder="Nombre" #nombre = "ngModel" ngModel>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput type="text" class="form-control" id="apellidos" name="apellidos" placeholder="Primer Apellido" #apellidos = "ngModel" ngModel>
+  </mat-form-field>
+  <!-- <div class="form-group">
+    <label for="Genero">Genero</label>
+    <select class="form-control" id="Genero" name = "genero" name = "genero" placeholder="Genero"#genero = "ngModel" ngModel >
+      <option>Masculino</option>
+      <option>Femenino</option>
+      </select>
+    </div> -->
+
+  <!-- <div class="form-group">
+    <label for="TipoDoc">Tipo de documento</label>
+    <select class="form-control" id="tipoDocumento" name="tipoDocumento" #tipoDocumento = "ngModel" ngModel>
+      <option>R.C</option>
+      <option>T.I</option>
+      <option>C.C</option>
+      <option>C.E</option>
+    </select>
+  </div> -->
+  <mat-form-field>
+    <input matInput type="text" class="form-control" id="NumeroDoc" name="documento" placeholder="Número Documento" #documeto = "ngModel" ngModel>
+  </mat-form-field>
+
+
+  <!-- <div class="form-group">
+    <label for="fechaN">Fecha de Nacimiento</label>
+    <input class="form-control" type="date" value="2011-08-19" name="fechaNacimiento" #fechaNacimiento = "ngModel" ngModel >
+  </div>
+  <div class="form-group">
+    <label for="Eps">EPS</label>
+    <input type="text" class="form-control" id="Eps" name="eps" #eps= "ngModel" ngModel placeholder="EPS">
+  </div> -->
+    <!--  <div class="form-group">
+          <label for="anoIngreso">Fecha de ingreso</label>
+      <input class="form-control" type="date" value="2011-08-19" name="anoIngreso"  id="fechaIngreso" #anoIngreso = "ngModel" ngModel>
+    </div>
+    <div class="form-group">
+        <label for="Estado">Estado</label>
+      <select class="form-control" id="Estado" name ="estado" [(ngModel)]="newParticipante.estado">
+                <option>Activo</option>
+        <option>Inactivo</option>
+      </select>
+    </div>
+-->
+
+<!-- <p>Información de Participaciones/Programa</p>
+  <div class="form-group">
+        <label for="nombrePrograma">Nombre</label>
+    <input type="text" class="form-control" id="nombrePrograma" name="nombrePrograma" [(ngModel)]="newPrograma.nombre" placeholder="Nombre del programa">
+  </div> --
+  <div class="form-group">
+        <label for="fechaInicio">Fecha de Inicio</label>
+    <input class="form-control" type="date" value="2011-08-19" name="fechaInicio" [(ngModel)]="newPrograma.fechaInicio" id="fechaInicioP">
+  </div>
+  <div class="form-group">
+        <label for="fechaFinP">Fecha de Fin</label>
+    <input class="form-control" type="date" value="2011-08-19" name="fechaFin" [(ngModel)]="newPrograma.fechaFin" id="fechafinP">
+  </div>
+  
+  <p>Fin de informacion de Programa</p>
+-->
+<!--
+  <div class="form-group">
+      <label for="usoImagenP">Uso de Imagen</label>
+      <input type="text" class="form-control" id="usoImagenP" name="UsoDeImagen" placeholder="Uso de Imagen" #usoImagen = "ngModel" ngModel>
+    </div>
+    
+    <p>No sé hacer una lista de contactos</p>
+    <div class="form-group">
+      <label for="Direccion">Direccion</label>
+      <input type="text" class="form-control" id="Direccion" name="direccion" placeholder="Direccion" #direccion = "ngModel" ngModel>
+    </div>
+    <div class="form-group">
+      <label for="Estrato">Estrato</label>
+      <input type="text" class="form-control" id="Estrato" name="estrato" placeholder="Estrato" #estrato = "ngModel" ngModel>
+    </div>
+    <div class="form-group">
+      <label for="Email">Email</label>
+      <input type="text" class="form-control" id="Email" name="email" placeholder="Email" #email = "ngModel" ngModel>
+    </div>-->
+    <!--
+          <p>Datos de Origen</p>
+    <div class="form-group">
+            <label for="TIngreso">Tipo de Ingreso</label>
+      <input type="text" class="form-control" id="TIngreso" name="tipoIngreso" placeholder="Tipo de Ingreso" #tipoIngreso = "ngModel" ngModel>
+    </div>
+    
+    <div class="form-group">
+            <label for="GradoIngreso">Grado de Ingreso</label>
+      <input type="text" class="form-control" id="GradoIngreso" name="gradoIngreso" placeholder="Grado de Ingreso" [(ngModel)]="newOrigen.gradoIngreso">
+    </div>
+    <div class="form-group">
+            <label for="ColegioIngreso">Colegio de ingreso</label>
+      <input type="text" class="form-control" id="ColegioIngreso" name="colegioIngreso" [(ngModel)]="newOrigen.colegioIngreso" placeholder="Colegio de ingreso">
+    </div>
+    <p>Fin de Origen</p>
+  -->
+  <!--
+    <p>informacion de Colegio luego la hago</p>
+    <div class="form-group">
+      <label for="ColegioActual">Colegio Actual</label>
+      <input type="text" class="form-control" id="ColegioActual" name="colegioActual" #colegio="ngModel" ngModel  placeholder="Colegio Actual">
+    </div>
+  -->
+    <!-- <div class="form-group">
+      <label for="GradoActual">Grado Actual</label>
+      <input type="text" class="form-control" id="GradoActual" name="gradoActual" #gradoActual="ngModel" ngModel placeholder="Grado Actual">
+    </div>
+    <p>No sé hacer una lista de acudientes</p> -->
+    <p>Información acudiente</p>
+    <mat-form-field>
+      <input matInput type="text" [(ngModel)]="nombreCompleto" name="nombreCompleto" class="form-control" placeholder="Nombre acudiente" >
+    </mat-form-field>
+    <span class="input-group-addon">
+      <button mat-button color="primary" class="btn btn-primary"(click)="addTask($event)">
+          Añadir acudiente
+      </button>
+    </span>
+    <p>informacion de colegio</p>
+    <mat-form-field>
+      <input matInput type="text" class="form-control" id="nombreColegio" name="nombreColegio" #nombreColegio="ngModel" ngModel placeholder="Nombre Colegio">
+    </mat-form-field>
+    <p>Informacion de contacto de colegio</p>
+    <mat-form-field>
+      <input matInput type="text" [(ngModel)]="nombreCompletoContacto" ngModel name="nombreCompletoContacto" class="form-control" placeholder="nombreCompletoContacto" >
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput type="text" [(ngModel)]="celular" name="celular" class="form-control" placeholder="celular" >
+    </mat-form-field>
+    <span class="input-group-addon">
+      <button mat-button color="primary"  class="btn btn-primary"(click)="addContactos($event)">
+          Añadir contactos
+      </button>
+    </span>
+
+    <mat-form-field>
+      <input matInput type="text" class="form-control" id="barrioColegio" name="barrioColegio" #barrioColegio="ngModel" ngModel placeholder="Barrio Colegio">
+    </mat-form-field>
+
+    <!--<table class="table text-center table-hover">
+      <thead>
+        <tr>
+          <th>Status</th>
+          <th>Title</th>
+          <th>Operations</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let task of tasks">
+          <td>
+            <input type="checkbox" [checked]="task.isDone" (click)="updateStatus(task)">
+            </td>
+            <td>{{ task.title }}</td>
+            <td>
+                <button class="btn btn-danger" (click)="deleteTask(task._id)">
+                <i class="fa fa-trash"></i>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    -->
+    <!--
+          <div class="form-group">
+              <label for="activo">Activo</label>
+      <select class="form-control" id="Activo" name ="activo" #activo="ngModel" ngModel>
+                <option>si</option>
+        <option>no</option>
+      </select>
+    </div>
+    
+    
+    <div class="form-group">
+            <label for="Egresado">Egresado</label>
+      <select class="form-control" id="Egresado" name ="egresado" [(ngModel)]="newParticipante.egresado">
+                <option>si</option>
+        <option>no</option>
+      </select>
+    </div>
+  -->
+    <!-- <div class="form-group">
+      <label for="Ocupacion">Ocupacion</label>
+      <input type="text" class="form-control" id="Ocupacion" name="ocupacion" placeholder="Ocupacion" #ocupacion ="ngModel" ngModel>
+    </div>
+    <div class="form-group">
+      <label for="AreaLaboral">AreaLaboral</label>
+      <input type="text" class="form-control" id="AreaLaboral" name="areaLaboral" placeholder="Área Laboral" #areaLaboral ="ngModel" ngModel>
+    </div>
+    <div class="form-group">
+      <label for="NivelFormacion">Nivel de formacion</label>
+      <input type="text" class="form-control" id="NivelFormacion" name="nivelFormacion" placeholder="Nivel de Formación" #nivelFormacion ="ngModel" ngModel>
+    </div>
+    
+    <div class="form-group">
+      <label for="ProgramaAcademico">Programa Academica</label>
+      <input type="text" class="form-control" id="ProgramaAcademico" name="programaAcademico" placeholder="Programa Academico" #programaAcademico ="ngModel" ngModel>
+    </div>
+    
+    <p>Luego hago la universidad</p>
+    <div class="form-group">
+      <label for="Observaciones">Obervaciones</label>
+      <textarea class="form-control" id="Observaciones" rows="3" name="observaciones" #observaciones ="ngModel" ngModel></textarea>
+      </div> -->
+      <button mat-raised-button color="primary"	 type="submit" >Enviar</button>
+    </mat-card>
+    </form>
+  </mat-tab>
+  <mat-tab label="Registro administradores" *ngIf="isAdmin()"> 
+    <app-registro-admin></app-registro-admin>
+  </mat-tab>
+  <mat-tab label="Registro monitores" *ngIf="isAdmin()"> 
+      <app-registro-admin></app-registro-admin>
+  </mat-tab>
+</mat-tab-group>
