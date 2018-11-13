@@ -16,7 +16,7 @@ export class PreguntasComponent implements OnInit {
 
   ngOnInit() {}
 
-  putPregunta(form: NgForm){
+  putPreguntas(form: NgForm){
     if (form.invalid) {
       return;
     }
