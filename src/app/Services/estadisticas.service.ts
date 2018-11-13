@@ -22,7 +22,7 @@ constructor(private http: HttpClient) { }
 //Se congen los datos del back-end
 getEstadisticasParticipacionAnual() {
 
-  this.http.get<{ message: string; participacionAn: any[] }>( 'http://localhost:3000/api/estadisticasList' )
+  this.http.get<{ message: string; participacionAn: any[] }>( 'https://quiet-retreat-14647.herokuapp.com/api/estadisticasList' )
       .subscribe(postData => {
         const setData: EstadisticaColegios = {
           barChartType: "bar", 
@@ -37,7 +37,7 @@ getEstadisticasParticipacionAnual() {
 }
 
 getEstadisticasParticipantesActivosPorCole() {
-  this.http.get< {message: string, participacionAn: [[number]]}>('http://localhost:3000/api/estadisticasListColegioActivo')
+  this.http.get< {message: string, participacionAn: [[number]]}>('https://quiet-retreat-14647.herokuapp.com/api/estadisticasListColegioActivo')
   .subscribe(postData => {
     const colegios = ['colombo americano', 'colombo frances', 'colombo ingles','la compañia de maria', 'montessori', 'the columbus school','seminario corazonista','inem'];
     let chartDataToSet: [{data: [number], label:string}] = [{data: null, label: null}];
@@ -71,7 +71,7 @@ postConsultaEstadistica(
     barChartData: barCharDataIn
   }
   this.http
-    .post<{ message: string }>("http://localhost:3000/api/estadisticasCreate", post)
+    .post<{ message: string }>("https://quiet-retreat-14647.herokuapp.com/api/estadisticasCreate", post)
     .subscribe(responseData => {
       console.log(responseData.message);
     });

@@ -11,7 +11,7 @@ import { Participante } from "../Models/participante.model";
 export class ParticipanteService {
 
 
-  readonly URL = "http://localhost:3000/api/participantes";
+  readonly URL = "https://quiet-retreat-14647.herokuapp.com/api/participantes";
   private participantes: Participante[] = [];
   private participantesUpdated = new Subject<Participante[]>();
   

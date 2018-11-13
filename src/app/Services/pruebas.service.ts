@@ -11,7 +11,7 @@ import {Grupo} from "../Models/Pruebas/grupoPrueba.model";
 export class PruebasService {
 
 
-  readonly URL = "http://localhost:3000/api/pruebas";
+  readonly URL = "https://quiet-retreat-14647.herokuapp.com/api/pruebas";
   private participantes: ParticipantePrueba[] = [];
   private participantesUpdated = new Subject<ParticipantePrueba[]>();
   
@@ -33,7 +33,7 @@ export class PruebasService {
     addPostGR(pp: Grupo) {
       console.log("entra al servicio");
       this.http
-        .post<{ message: string }>("http://localhost:3000/api/pruebas",pp )
+        .post<{ message: string }>("https://quiet-retreat-14647.herokuapp.com/api/pruebas",pp )
         .subscribe(responseData => {
           console.log(responseData.message);
         });

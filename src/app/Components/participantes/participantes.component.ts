@@ -15,15 +15,15 @@ import { AuthService } from 'src/app/Services/auth.service';
 })
 export class ParticipantesComponent implements OnInit {
   //informacion acudientes
-  private acudientes: Acudiente[] = []; //Lista de acudientes
-  private nombreCompleto : string;
+  public acudientes: Acudiente[] = []; //Lista de acudientes
+  public nombreCompleto : string;
   //informacion colegio
-  private contactosColegio: Contacto[] = []; //Lista de contactos colegio
-  private nombreCompletoContacto: string;
-  private celular: string;
+  public contactosColegio: Contacto[] = []; //Lista de contactos colegio
+  public nombreCompletoContacto: string;
+  public celular: string;
   constructor(public ppService: ParticipanteService, public authService: AuthService, private http: HttpClient) { }
 
-  private selectedFile = null;
+  public selectedFile = null;
 
   ngOnInit() {
   }

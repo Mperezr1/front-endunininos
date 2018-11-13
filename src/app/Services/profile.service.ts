@@ -8,7 +8,7 @@ export class ProfileService implements OnInit{
 
 getAcudientes(){
 
-  this.http.get<{ message: string; participacionAn: any[] }>( 'http://localhost:3000/api/profile/acudientes' )
+  this.http.get<{ message: string; participacionAn: any[] }>( 'https://quiet-retreat-14647.herokuapp.com/api/profile/acudientes' )
       .subscribe(postData => {
         console.log(postData);
       });

@@ -48,7 +48,7 @@ const authData: regularUser = {
   email: emailIn, 
   password: passwordIn
 }
-this.http.post<{message: number, token: string}>("http://localhost:3000/api/auth/signup",authData).subscribe(res => {  
+this.http.post<{message: number, token: string}>("https://quiet-retreat-14647.herokuapp.com/api/auth/signup",authData).subscribe(res => {  
   if(res.message === 0){
     alert("Usuario creado exitosamente.");
     this.login(authData.email, authData.password);
@@ -70,7 +70,7 @@ createMonitor(nombreIn: string, apellidoIn: string, emailIn: string, passwordIn:
     email: emailIn, 
     password: passwordIn
   }
-  this.http.post<{message: number, token: string}>("http://localhost:3000/api/auth/signupMonitor",authData).subscribe(res => {  
+  this.http.post<{message: number, token: string}>("https://quiet-retreat-14647.herokuapp.com/api/auth/signupMonitor",authData).subscribe(res => {  
     if(res.message === 0){
       alert("Usuario creado exitosamente.");
     }else if(res.message === 1){
@@ -91,7 +91,7 @@ const authData: regularUser = {
   email: emailIn, 
   password: passwordIn
 }
-this.http.post<{message: number, token: string}>("http://localhost:3000/api/auth/signupAdmin",authData).subscribe(res => {  
+this.http.post<{message: number, token: string}>("https://quiet-retreat-14647.herokuapp.com/api/auth/signupAdmin",authData).subscribe(res => {  
   if(res.message === 0){
     alert("Usuario creado exitosamente.");
   }else if(res.message === 1){
@@ -107,7 +107,7 @@ const authData = {
   email: emailIn, 
   password: passwordIn
 }
-this.http.post<{token: string, priorty: number, nombre:string, documento: number}>("http://localhost:3000/api/auth/login",authData).subscribe(res => {
+this.http.post<{token: string, priorty: number, nombre:string, documento: number}>("https://quiet-retreat-14647.herokuapp.com/api/auth/login",authData).subscribe(res => {
   const tokenIn = res.token;
   this.actualPriority = res.priorty;
   this.nombre = res.nombre;
