@@ -38,7 +38,20 @@
     "ng-contenteditable": "^2.0.2",
     "ng2-charts": "^1.6.0",
     "rxjs": "~6.2.0",
-    "zone.js": "~0.8.26"
+    "zone.js": "~0.8.26",
+    "@types/cors": "^2.8.4",
+    "body-parser": "^1.18.3",
+    "cors": "^2.8.4",
+    "download": "^7.1.0",
+    "e.js": "0.0.2",
+    "ejs": "^2.6.1",
+    "express": "^4.16.3",
+    "express-myconnection": "^1.0.4",
+    "mime-types": "^2.1.21",
+    "mongo-xlsx": "^1.0.12",
+    "mongodb": "^3.1.6",
+    "mongoose": "^5.2.17",
+    "morgan": "^1.9.1"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.8.0",
