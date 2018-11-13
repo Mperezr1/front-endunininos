@@ -11,6 +11,8 @@ import { regularUser } from '../Models/regularUser.model';
 export class AuthService {
 
 private token: string;
+public nombre: string;
+public documento: number;
 public actualPriority: number;
 private userName: string;
 private authStatus = new Subject<boolean>();
@@ -31,6 +33,10 @@ getUserName(){
   return this.userName;
 }
 
+getDocumento(){
+  return this.documento;
+}
+
 //Esto es para usuarios regulares
 createUser(nombreIn: string, apellidoIn: string, emailIn: string, passwordIn: string, documentoIn: number, contactoIn: number){
 const authData: regularUser = {
@@ -42,7 +48,7 @@ const authData: regularUser = {
   email: emailIn, 
   password: passwordIn
 }
-this.http.post<{message: number, token: string}>("https://safe-cliffs-35380.herokuapp.com/api/auth/signup",authData).subscribe(res => {  
+this.http.post<{message: number, token: string}>("http://localhost:3000/api/auth/signup",authData).subscribe(res => {  
   if(res.message === 0){
     alert("Usuario creado exitosamente.");
     this.login(authData.email, authData.password);
@@ -54,6 +60,27 @@ this.http.post<{message: number, token: string}>("https://safe-cliffs-35380.hero
 });
 }
 
+createMonitor(nombreIn: string, apellidoIn: string, emailIn: string, passwordIn: string, documentoIn: number, contactoIn: number){
+  const authData: regularUser = {
+    nombre: nombreIn,
+    apellido: apellidoIn,
+    documento: documentoIn,
+    prioridad: null,
+    contacto: contactoIn,
+    email: emailIn, 
+    password: passwordIn
+  }
+  this.http.post<{message: number, token: string}>("http://localhost:3000/api/auth/signupMonitor",authData).subscribe(res => {  
+    if(res.message === 0){
+      alert("Usuario creado exitosamente.");
+    }else if(res.message === 1){
+      alert("Usuario ya existe");
+    }else {
+      alert("Problema al registrar.");
+    }
+  });
+  }
+
 createAdmin(nombreIn: string, apellidoIn: string, emailIn: string, passwordIn: string, documentoIn: number, contactoIn: number){
 const authData: regularUser = {
   nombre: nombreIn,
@@ -64,7 +91,7 @@ const authData: regularUser = {
   email: emailIn, 
   password: passwordIn
 }
-this.http.post<{message: number, token: string}>("https://safe-cliffs-35380.herokuapp.com/api/auth/signupAdmin",authData).subscribe(res => {  
+this.http.post<{message: number, token: string}>("http://localhost:3000/api/auth/signupAdmin",authData).subscribe(res => {  
   if(res.message === 0){
     alert("Usuario creado exitosamente.");
   }else if(res.message === 1){
@@ -80,15 +107,18 @@ const authData = {
   email: emailIn, 
   password: passwordIn
 }
-this.http.post<{token: string, priorty: number}>("https://safe-cliffs-35380.herokuapp.com/api/auth/login",authData).subscribe(res => {
+this.http.post<{token: string, priorty: number, nombre:string, documento: number}>("http://localhost:3000/api/auth/login",authData).subscribe(res => {
   const tokenIn = res.token;
   this.actualPriority = res.priorty;
+  this.nombre = res.nombre;
   this.token = tokenIn;
+  this.documento = res.documento;
   if(tokenIn){
   this.authStatus.next(true);
   this.userName = authData.email;
   this.router.navigate(['/home']);
   }
+  console.log(this.actualPriority);
 });
 }
 

@@ -1,6 +1,6 @@
 <div class="content">
 
-  <form (submit)="putPregunta(postForm)"  #postForm= "ngForm">
+  <form (submit)="putPreguntas(postForm)"  #postForm= "ngForm">
           
     <div class="col s7">
       <table class="striped highlight black-text">
@@ -12,8 +12,6 @@
           <tr *ngFor="let pregunta of preguntasService.preguntas">
             <td>{{ pregunta.pregunta }}</td>
             <td>{{ pregunta.respuesta }}</td>
-            <td>
-            </td>
           </tr>
         </tbody>
       </table>

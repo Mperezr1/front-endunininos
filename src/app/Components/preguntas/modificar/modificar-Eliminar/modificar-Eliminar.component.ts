@@ -10,7 +10,9 @@ import { PreguntasModel } from '../../../../Models/pregunta.model';
 })
 export class ModificarEliminarComponent implements OnInit {
 
-  constructor(public PreguntaService: PreguntasService) { }
+  constructor(public PreguntaService: PreguntasService) { 
+    PreguntaService.getPreguntas();
+  }
 
   ngOnInit() {
   }
@@ -25,6 +27,7 @@ export class ModificarEliminarComponent implements OnInit {
           this.PreguntaService.preguntas = res as PreguntasModel[];
           alert('Se ha eliminado una pregunta ' + form.value.preguntaE);
           console.log(res);
+          form.resetForm();
     });
   }
 
@@ -42,10 +45,11 @@ export class ModificarEliminarComponent implements OnInit {
     if (form.invalid) {
       return;
     }
-    this.PreguntaService.deletePregunta(form.value.preguntaE);    
+    this.PreguntaService.deletePregunta(form.value.preguntaE);
     alert('Se ha eliminado una pregunta ' + form.value.preguntaE);
     form.resetForm();
+    this.PreguntaService.getPreguntas();
   }
-  } 
+} 
 
 

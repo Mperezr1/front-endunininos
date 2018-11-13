@@ -1,1 +1,45 @@
 <h1 style="text-align:center">Bienvenidos a la aplicación web de Uni-Niños</h1>
+<h2 style="text-align:center">Fechas importantes</h2>
+<div class="calendario">
+  <div class="col s7" >
+          <table style="margin: 0px auto;" class="centerTable" >
+            <thead>
+              <th>Actividad</th>
+              <th>Fecha</th>
+            </thead>
+            <tbody>
+              <tr *ngFor="let actividad of cronogramaService.actividades">
+                <td>{{ actividad.nombre }}</td>
+                <td>{{ actividad.fecha | date:'mediumDate' }}</td>
+
+
+              <!-- Esta parte solo la deberían poder hacer los admins ABAJO--> 
+                <td>
+                  <a (click)="borrarActividad(actividad)">
+                    <i class="material-icons">delete</i>
+                  </a>
+                </td>
+              <!-- Esta parte solo la deberían poder hacer los admins ARRIBA--> 
+
+
+              </tr>
+            </tbody>
+          </table>
+          <br>
+          <br>
+  </div>
+
+    
+            <!-- Esta parte solo la deberían poder hacer los admins ABAJO--> 
+  <div class="center"> 
+          <form (submit)="agregarActividad(formularioAgregar)"  #formularioAgregar= "ngForm">
+              <mat-card>
+                  <input matInput type="text" class="form-control" id="Nombre" name="nombre" placeholder="Nombre actividad" ngModel>
+                  <input mat-date-input type="date" class="form-control" id="Fecha" name="fecha" placeholder="Fecha actividad" ngModel>
+              <button mat-raised-button color="primary" type="submit" class="btn btn-primary">Enviar</button>
+            </mat-card>
+          </form>
+  </div>
+            <!-- Esta parte solo la deberían poder hacer los admins ARRIBA--> 
+
+</div>

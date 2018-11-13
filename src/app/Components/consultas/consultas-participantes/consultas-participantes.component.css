@@ -8,6 +8,7 @@
     height: 100%;
     overflow: auto;
   }
+
   
   /* Sidebar links */
   .sidebar a {
@@ -54,3 +55,21 @@
       float: none;
     }
   }
+
+  mat-form-field {
+    width: 100%;
+}
+mat-card{
+    width: 50%;
+    margin:auto;
+}  
+mat-radio-button[type="radio"] {
+    margin-right: 55;
+  }
+
+button.descarga{
+
+  left: 100px;
+  bottom: 35px;
+
+}

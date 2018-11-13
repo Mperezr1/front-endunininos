@@ -1,12 +1,9 @@
 <script src="node_modules/chart.js/src/chart.js"></script>
 
-<div class="sidebar">
-    <a routerLink='/estadisticasCreate' routerLinkActive="active">Crear estadisticas
-    </a>
-    <a routerLink='/estadisticasList' routerLinkActive="active">Consultar estadisticas
-    </a>
-</div>
-
-<h1 style="text-align:center">Ayuda de estadisticas</h1>
+<mat-tab-group>
+    <mat-tab label="Mirar Estadisticas">
+        <app-estadisticas-list></app-estadisticas-list>
+    </mat-tab>
+</mat-tab-group>
 
    

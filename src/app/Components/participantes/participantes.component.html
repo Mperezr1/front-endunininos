@@ -117,6 +117,10 @@
       <input type="text" class="form-control" id="GradoActual" name="gradoActual" #gradoActual="ngModel" ngModel placeholder="Grado Actual">
     </div>
     <p>No sé hacer una lista de acudientes</p> -->
+    <p>Foto</p>
+    <input type="file" (change)="onFileSelected($event)">
+    <button mat-button color="primary" class="btn btn.primary" (click)="onUpload()">Cargar</button>
+
     <p>Información acudiente</p>
     <mat-form-field>
       <input matInput type="text" [(ngModel)]="nombreCompleto" name="nombreCompleto" class="form-control" placeholder="Nombre acudiente" >
@@ -219,6 +223,6 @@
     <app-registro-admin></app-registro-admin>
   </mat-tab>
   <mat-tab label="Registro monitores" *ngIf="isAdmin()"> 
-      <app-registro-admin></app-registro-admin>
+      <app-registro-monitor></app-registro-monitor>
   </mat-tab>
 </mat-tab-group>

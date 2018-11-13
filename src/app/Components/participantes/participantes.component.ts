@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from "@angular/forms";
+import { HttpClientModule } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { ParticipanteService } from '../../Services/participante.service'
 import { ParticipantePrueba, Acudiente } from '../../Models/Pruebas/participantePrueba.model'
 import { ColegioPrueba, Contacto } from '../../Models/Pruebas/colegioPrueba.model'
@@ -13,13 +15,15 @@ import { AuthService } from 'src/app/Services/auth.service';
 })
 export class ParticipantesComponent implements OnInit {
   //informacion acudientes
-  public acudientes: Acudiente[] = []; //Lista de acudientes
-  public nombreCompleto : string;
+  private acudientes: Acudiente[] = []; //Lista de acudientes
+  private nombreCompleto : string;
   //informacion colegio
-  public contactosColegio: Contacto[] = []; //Lista de contactos colegio
-  public nombreCompletoContacto: string;
-  public celular: string;
-  constructor(public ppService: ParticipanteService, public authService: AuthService) { }
+  private contactosColegio: Contacto[] = []; //Lista de contactos colegio
+  private nombreCompletoContacto: string;
+  private celular: string;
+  constructor(public ppService: ParticipanteService, public authService: AuthService, private http: HttpClient) { }
+
+  private selectedFile = null;
 
   ngOnInit() {
   }
@@ -103,4 +107,9 @@ export class ParticipantesComponent implements OnInit {
     }); 
   }
 
+  onFileSelected(event){
+    this.selectedFile = event.target.files[0];
+  }
+
+  onUpload(){  }
 }

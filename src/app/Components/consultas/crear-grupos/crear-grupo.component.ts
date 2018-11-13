@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { PruebasService } from 'src/app/Services/pruebas.service';
-import {Grupo} from '../../Models/Pruebas/grupoPrueba.model';
+import { Grupo } from '../../../Models/Pruebas/grupoPrueba.model';
 
 @Component({
-  selector: 'app-consultas',
-  templateUrl: './consultas.component.html',
-  styleUrls: ['./consultas.component.css']
+  selector: 'app-crear-grupo',
+  templateUrl: './crear-grupo.component.html',
+  styleUrls: ['./crear-grupo.component.css']
 })
-export class ConsultasComponent implements OnInit {
+export class CrearGrupoComponent implements OnInit {
   public grupo: Grupo;
   constructor(public pruebasService: PruebasService) { }
 

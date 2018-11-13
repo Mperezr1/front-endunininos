@@ -8,8 +8,8 @@ import { nextTick } from "q";
 
 export class PreguntasService {
 
-    readonly URL = "https://safe-cliffs-35380.herokuapp.com/api/preguntas";
-    readonly URLE = "https://safe-cliffs-35380.herokuapp.com/api/preguntas/modificar-Eliminar";
+    readonly URL = "http://localhost:3000/api/preguntas";
+    readonly URLE = "http://localhost:3000/api/preguntas/modificar-Eliminar";
     preguntas: PreguntasModel[] = [];
     preguntaEliminar: PreguntasModel[] = [];
     private participantesUpdated = new Subject<PreguntasModel[]>();
@@ -23,21 +23,21 @@ export class PreguntasService {
   
     addPost(pp: PreguntasModel) {
       this.http
-        .post<{ message: string }>(this.URL, pp)
+      .post("http://localhost:3000/api/preguntas/modificar/modificar-Agregar",pp)
         .subscribe(responseData => {
-          console.log(responseData.message);
+          console.log(responseData);
           this.preguntas.push(pp);
           this.participantesUpdated.next([...this.preguntas]);
         });
     }
 
-    getPregunta(pregunta: string) {
-        return this.http.get(this.URL + "Pregunta/" + pregunta);
-      }
-
-    getRespuesta(respuesta: string) {
-      return this.http.get(this.URL + "Respuesta/" + respuesta);
+    getPreguntas() {
+      return this.http.get(this.URL + "getPregunta/");
     }
+
+    getPregunta(pregunta: string) {
+        return this.http.get(this.URL + "getPregunta/" + pregunta);
+      }
 
     deletePregunta(test: string) {
      const preguntaEliminar = {
@@ -45,7 +45,7 @@ export class PreguntasService {
        respuesta: "Otro parametro"
      };
      this.http
-      .post("api/preguntas/modificar/modificar-Eliminar",preguntaEliminar)
+      .post("http://localhost:3000/api/preguntas/modificar/modificar-Eliminar",preguntaEliminar)
       .subscribe(res => {
       console.log(res+"estoy aqui");
       });

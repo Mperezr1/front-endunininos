@@ -8,26 +8,56 @@ import { HttpClient } from '@angular/common/http';
 })
 export class EstadisticasService {
 
-private estadisticasColegios: EstadisticaColegios[] = [];
-private estadisticasColegiosUpdated =  new Subject<EstadisticaColegios[]>();
+private estadisticasParAnual: EstadisticaColegios;
+private estadisticasParAnualUpdated =  new Subject<EstadisticaColegios>();
+
+private estadisticasParActivo: EstadisticaColegios;
+private estadisticasParActivoUpdated =  new Subject<EstadisticaColegios>();
+
+
 
 constructor(private http: HttpClient) { }
 
 
 //Se congen los datos del back-end
-getEstadisticasColegios() {
+getEstadisticasParticipacionAnual() {
 
-  this.http.get<{ message: string; posts: EstadisticaColegios[] }>( 'https://safe-cliffs-35380.herokuapp.com/api/estadisticasList' )
+  this.http.get<{ message: string; participacionAn: any[] }>( 'http://localhost:3000/api/estadisticasList' )
       .subscribe(postData => {
-        this.estadisticasColegios = postData.posts;
-        this.estadisticasColegiosUpdated.next([...this.estadisticasColegios]);
+        const setData: EstadisticaColegios = {
+          barChartType: "bar", 
+          barChartLabels: ['2000','2001','2002','2003','2004','2005','2006','2007','2008','2009','2010','2011','2012','2013','2014','2015','2016', '2017', '2018'],
+          barChartLenged: false,
+          barChartData: [{data: postData.participacionAn, label:"Participaciones"}]
+        };
+        this.estadisticasParAnual = setData;
+        this.estadisticasParAnualUpdated.next(this.estadisticasParAnual);
       });
+
 }
 
+getEstadisticasParticipantesActivosPorCole() {
+  this.http.get< {message: string, participacionAn: [[number]]}>('http://localhost:3000/api/estadisticasListColegioActivo')
+  .subscribe(postData => {
+    const colegios = ['colombo americano', 'colombo frances', 'colombo ingles','la compañia de maria', 'montessori', 'the columbus school','seminario corazonista','inem'];
+    let chartDataToSet: [{data: [number], label:string}] = [{data: null, label: null}];
+    for(var i = 0; i< postData.participacionAn.length; i++){
+      chartDataToSet.push({data: postData.participacionAn[i], "label": colegios[i]});
+    }
+    const setData: EstadisticaColegios = {
+      barChartType: "bar", 
+      barChartLabels: ['Activo','Egresado','Inactivo'],
+      barChartLenged: true,
+      barChartData: chartDataToSet
+    };
+    this.estadisticasParActivo = setData;
+    this.estadisticasParActivoUpdated.next(this.estadisticasParActivo);
+  });
+}
+
+
+//Este metodo no es utilizado en el momento ya que la db no se pudo migrar con exito.
 postConsultaEstadistica(
-  seriesDatas: string[],
-  atributoSeleccionadoIn:string,
-  param: string[],
   barCharLabeslIn:string[], 
   barCharTypeIn:string, 
   barChartLengedIn: boolean, 
@@ -35,16 +65,13 @@ postConsultaEstadistica(
   {
   
   const post: EstadisticaColegios = {
-    seriesData: seriesDatas,
-    atributoSeleccionado:atributoSeleccionadoIn,
-    parametrosAUsar:param ,
     barChartLabels: barCharLabeslIn, 
     barChartType:barCharTypeIn, 
     barChartLenged: barChartLengedIn, 
     barChartData: barCharDataIn
   }
   this.http
-    .post<{ message: string }>("https://safe-cliffs-35380.herokuapp.com/api/estadisticasCreate", post)
+    .post<{ message: string }>("http://localhost:3000/api/estadisticasCreate", post)
     .subscribe(responseData => {
       console.log(responseData.message);
     });
@@ -52,7 +79,11 @@ postConsultaEstadistica(
 
 //Se retorna un observable el cual tiene los datos actualizados del ultimo get.
 getUpdateListener() {
-  return this.estadisticasColegiosUpdated.asObservable();
+  return this.estadisticasParAnualUpdated.asObservable();
+}
+
+getUpdateListenerEA(){
+  return this.estadisticasParActivoUpdated.asObservable();
 }
 
 }

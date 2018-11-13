@@ -14,29 +14,26 @@ import { ModificarEliminarComponent } from './Components/preguntas/modificar/mod
 import { ParticipantesComponent } from './Components/participantes/participantes.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
+import { MatRadioModule } from '@angular/material/radio';
 import { MatToolbarModule, MatInputModule, MatCardModule, MatButtonModule, MatIconModule, MatExpansionModule, MatCheckboxModule,
          MatSelectModule, MatTabsModule, MatFormFieldControl } from '@angular/material';
 import { EstadisticasComponent } from './Components/estadisticas/estadisticas.component';
 import { EstadisticasListComponent } from './Components/estadisticas/estadisticas-list/estadisticas-list.component';
-import { EstadisticasCreateComponent } from './Components/estadisticas/estadisticas-create/estadisticas-create.component';
 import { appRoutes } from './routes';
 import { HomeComponent } from './Components/home/home.component';
-import { ConsultasComponent } from './Components/consultas/consultas.component';
-import { ConsultasColegioComponent } from './Components/consultas/consultas-colegio/consultas-colegio.component';
-import { ConsultasNombreComponent } from './Components/consultas/consultas-nombre/consultas-nombre.component';
-import { ConsultasDocumentoComponent } from './Components/consultas/consultas-documento/consultas-documento.component';
-import { ConsultasGrupoComponent } from './Components/consultas/consultas-grupo/consultas-grupo.component';
+import { CrearGrupoComponent } from './Components/consultas/crear-grupos/crear-grupo.component';
+import { ConsultasParticipantesComponent } from './Components/consultas/consultas-participantes/consultas-participantes.component';
 import { LoginComponent } from './Components/auth/login/login.component';
 import { SignupComponent } from './Components/auth/signup/signup.component';
 import { AuthInterceptor } from './Components/auth/auth-interceptor';
 import { AuthService} from './Services/auth.service';
 import { HeaderComponent } from './Components/header/header.component';
 import { CronogramaComponent } from './Components/cronograma/cronograma.component';
-import { ModificarCronogramaComponent } from './Components/cronograma/modificar-cronograma/modificar-cronograma.component';
 import { RegistroAdminComponent } from './Components/participantes/registro-admin/registro-admin.component';
 import { ProfileComponent } from './Components/profile/profile.component';
 import { AsignacionGruposComponent } from './Components/consultas/asignacion-grupos/asignacion-grupos.component';
 import { DescargaDatosComponent } from './Components/consultas/descarga-datos/descarga-datos.component';
+import { RegistroMonitorComponent } from './Components/participantes/registro-monitor/registro-monitor.component';
 
 
 
@@ -54,16 +51,12 @@ import { DescargaDatosComponent } from './Components/consultas/descarga-datos/de
       ProfileComponent,
       EstadisticasComponent,
       EstadisticasListComponent,
-      EstadisticasCreateComponent,
       HomeComponent,
-      ConsultasComponent,
-      ConsultasColegioComponent,
-      ConsultasNombreComponent,
-      ConsultasDocumentoComponent,
-      ConsultasGrupoComponent,
+      CrearGrupoComponent,
+      ConsultasParticipantesComponent,
       CronogramaComponent,
       RegistroAdminComponent,
-      ModificarCronogramaComponent,
+      RegistroMonitorComponent,
       AsignacionGruposComponent,
       DescargaDatosComponent
    ],
@@ -82,6 +75,7 @@ import { DescargaDatosComponent } from './Components/consultas/descarga-datos/de
       MatCheckboxModule,
       MatSelectModule,
       MatTabsModule,
+      MatRadioModule,
       ChartsModule,
       
       RouterModule.forRoot(appRoutes)

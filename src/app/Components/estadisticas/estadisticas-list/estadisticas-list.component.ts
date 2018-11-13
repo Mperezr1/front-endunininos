@@ -11,16 +11,29 @@ import { EstadisticaColegios } from '../../../Models/estadisticas-colegios.model
 })
 export class EstadisticasListComponent implements OnInit {
 
-  
+  //Datos para la primera grafica
   private estadisticasSub: Subscription;
-  listForCanvasBarras: EstadisticaColegios[] = [];
+  public barChartData = [{data:[], label: ""}];
+  public barChartLenged = false;
+  public barChartType = "bar";
+  public barChartLabels = ['2000','2001','2002','2003','2004','2005','2006','2007','2008','2009','2010','2011','2012','2013','2014','2015','2016', '2017'];
+  
+  //Datos para la segunda grafica  /EA = ESTADO ACTUAL
+  private estadisticasSub2: Subscription;
+  public barChartDataEA = [{data:[], label: ""}];
+  public barChartLengedEA = true;
+  public barChartTypeEA = "bar";
+  public barChartLabelsEA = ['Activo', 'Egresado', 'Inactivo'];
 
   constructor(public estadisticasService: EstadisticasService) { }
 
   ngOnInit() {
-    this.estadisticasService.getEstadisticasColegios();
-    this.estadisticasSub = this.estadisticasService.getUpdateListener().subscribe((posts: EstadisticaColegios[]) => {
-        this.listForCanvasBarras = posts;
+    this.estadisticasService.getEstadisticasParticipacionAnual();
+    this.estadisticasSub = this.estadisticasService.getUpdateListener().subscribe((posts: EstadisticaColegios) => {
+        this.barChartData = posts.barChartData;
+        this.barChartLenged = posts.barChartLenged;
+        this.barChartType = posts.barChartType;
+        this.barChartLabels = posts.barChartLabels;
       });
   }
 

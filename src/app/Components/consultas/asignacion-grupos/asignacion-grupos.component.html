@@ -1,22 +1,16 @@
-<html>
-  <body>
-    <div class="sidebar">
-      <a routerLink='/consultasNombre' routerLinkActive="active">Consultar por nombre
-      </a>
-      <a routerLink='/consultasDocumento' routerLinkActive="active">Consultar por documento
-      </a>
-      <a routerLink='/consultasColegio' routerLinkActive="active">Consultar por colegio
-      </a>
-      <a routerLink='/consultasGrupo' routerLinkActive="active">Consultar por grupo
-      </a>
-      <a routerLink= '/asignacionGrupos' routerLinkActive="active">Asignación de grupos</a>
-      <a routerLink= '/consultas' routerLinkActive="active">Crear Grupo</a>
-      <a routerLink= '/descarga' routerLinkActive="active">Descargas</a>
 
-    </div>
+      <div class="sidebar">
+          <a routerLink='/consultas' routerLinkActive="active">Consultar participantes</a>
+          <a routerLink= '/asignacionGrupos' routerLinkActive="active">Asignación de grupos</a>
+          <a routerLink= '/crearGrupo' routerLinkActive="active">Crear Grupo</a>
+          <a routerLink= '/descarga' routerLinkActive="active">Descargas</a>
+        
+        </div>
+   
     <h1 >Asignacion de Grupo </h1>
+    
     <div class="content">
-
+      <div class=texto ><p>Primero se debe hacer una consulta por documento, luego se le asigna un grupo por ID del grupo</p></div>
       <form (submit)="setGrupo(setForm)"  #setForm= "ngForm">
         <mat-form-field>
           <input matInput type="text" placeholder="ID de grupo" id="idGrupo" name="idGrupo" ngModel>
@@ -45,9 +39,6 @@
               <td>{{ participante.grupo }}</td>
               <td>{{ participante.colegio.nombre }}</td>
               <td>
-                <a (click)="editEmployee(employee)">
-                  <i class="material-icons">edit</i>
-                </a>
               </td>
             </tr>
           </tbody>
@@ -55,6 +46,3 @@
         </div>  
       </div>
     </div>
-
-  </body> 
-</html>

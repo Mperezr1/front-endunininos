@@ -10,7 +10,9 @@ import { PreguntasModel } from '../../../Models/pregunta.model';
 })
 export class ModificarComponent implements OnInit {
 
-  constructor(public PreguntaService: PreguntasService) { }
+  constructor(public PreguntaService: PreguntasService) { 
+    PreguntaService.getPreguntas();
+  }
 
   ngOnInit() {
   }
@@ -22,10 +24,10 @@ export class ModificarComponent implements OnInit {
     
     this.PreguntaService.getPregunta(form.value.pregunta)
         .subscribe(res => {
-          //this.consultasService.participantes = res as Participante[];
           this.PreguntaService.preguntas = res as PreguntasModel[];
           alert('Se ha eliminado una pregunta ' + form.value.nombre);
           console.log(res);
+          form.resetForm();
     });
   }
 
@@ -43,9 +45,8 @@ export class ModificarComponent implements OnInit {
     if (form.invalid) {
       return;
     }
-    this.PreguntaService.deletePregunta(form.value.pregunta);    
+    this.PreguntaService.deletePregunta(form.value.pregunta);  
     alert('Se ha eliminado una pregunta ' + form.value.pregunta);
-    form.resetForm();
   }
   } 
 

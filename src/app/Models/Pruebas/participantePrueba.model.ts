@@ -4,6 +4,7 @@ export class ParticipantePrueba {
     constructor(
         nombre: string,
         documento: string,
+        imagen: string,
         colegio: ColegioPrueba,
         acudientes: Acudiente[],
     ){}

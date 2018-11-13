@@ -12,6 +12,7 @@ export class Participante {
         nombre: string,
         apellidos: string,
         nombreCompleto: string,
+        imagen: string,
         genero: string,
         tipoDocumento: string,
         documento: string,

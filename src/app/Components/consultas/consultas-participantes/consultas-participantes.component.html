@@ -1,0 +1,72 @@
+
+<div class="sidebar">
+  <a routerLink='/consultas' routerLinkActive="active">Consultar participantes</a>
+  <a routerLink= '/asignacionGrupos' routerLinkActive="active">Asignación de grupos</a>
+  <a routerLink= '/crearGrupo' routerLinkActive="active">Crear Grupo</a>
+  <a routerLink= '/descarga' routerLinkActive="active">Descargas</a>
+
+</div>
+
+<div class="content">
+
+    <button mat-raised-button color="primary" (click)="traerTodos()">Traer todos</button><pre></pre>
+    <mat-radio-group (change)="onChange($event)" name="consulta">
+        <mat-radio-button type="radio" value="Nombre" color="primary">Nombre</mat-radio-button><pre></pre>
+        <mat-radio-button type="radio" value="Documento" color="primary">Documento</mat-radio-button><pre></pre>
+        <mat-radio-button type="radio" value="Grupo" color="primary">Grupo</mat-radio-button><pre></pre>
+        <mat-radio-button type="radio" value="Colegio" color="primary">Colegio</mat-radio-button><pre></pre>
+    </mat-radio-group> 
+    
+    <form (submit)="getParticipante(postForm)"  #postForm= "ngForm">
+      <br>
+
+        <mat-form-field>
+            <input matInput type="text" class="form-control" id="parameter" name="parameter" placeholder="Ejemplo: 123456789" ngModel>
+        </mat-form-field>
+
+        <button mat-raised-button color="primary" type="submit" class="btn btn-primary">Buscar</button>
+    </form>
+    <button class="descarga" (click)="descarga()" mat-raised-button color="primary" >Descargar Consulta</button>
+
+    <div class="col s7">
+        <table class="striped highlight black-text">
+          <thead>
+            <th>Nombre</th>
+            <th>Documento</th>
+            <th>Grupo</th>
+            <th>Colegio</th>
+          </thead>
+          <tbody>
+            <tr *ngFor="let participante of consultasService.participantes">
+              <td *ngIf="!editMode">{{ participante.nombre }}</td>
+              <td *ngIf="!editMode">{{ participante.documento }}</td>
+              <td *ngIf="!editMode">{{ participante.grupo }}</td>
+              <td *ngIf="!editMode">{{ participante.colegio.nombre }}</td>
+              <td *ngIf="!editMode">
+                  <a (click)="editMode=true">
+                    <i class="material-icons">edit</i></a>
+              </td>
+
+
+              <td *ngIf="editMode" contenteditable="true" (blur)="prepararCambio(participante._id, $event.srcElement.textContent, 'nombre')">{{ participante.nombre }}</td>
+              <td *ngIf="editMode" contenteditable="true" (blur)="prepararCambio(participante._id, $event.srcElement.textContent, 'documento')">{{ participante.documento }}</td>
+              <td *ngIf="editMode" contenteditable="true" (blur)="prepararCambio(participante._id, $event.srcElement.textContent, 'grupo')">{{ participante.grupo }}</td>
+              <td *ngIf="editMode" contenteditable="true" (blur)="prepararCambio(participante._id, $event.srcElement.textContent, 'colegio.nombre')" >{{ participante.colegio.nombre }}</td>
+              <td *ngIf="editMode"> 
+                <a (click)="guardar();editMode=false">
+                  <i class="material-icons">done</i></a>
+              </td>
+              <td *ngIf="editMode"> 
+                  <a (click)="cancelar();editMode=false">
+                    <i class="material-icons">clear</i></a>
+                </td>
+              <td *ngIf="editMode"> 
+                  <a (click)="eliminar(participante._id, participante.nombre)">
+                    <i class="material-icons">delete</i></a>
+                </td>
+
+            </tr>
+          </tbody>
+        </table>
+    </div>
+</div>

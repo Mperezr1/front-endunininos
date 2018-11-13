@@ -10,10 +10,11 @@ import { PreguntasModel } from '../../Models/pregunta.model';
 })
 export class PreguntasComponent implements OnInit {
 
-  constructor(public preguntasService: PreguntasService) { }
-
-  ngOnInit() {
+  constructor(public preguntasService: PreguntasService) {
+    preguntasService.getPreguntas();
   }
+
+  ngOnInit() {}
 
   putPregunta(form: NgForm){
     if (form.invalid) {
@@ -22,14 +23,8 @@ export class PreguntasComponent implements OnInit {
     
     this.preguntasService.getPregunta(form.value.pregunta)
         .subscribe(res => {
-          //this.consultasService.participantes = res as Participante[];
           this.preguntasService.preguntas = res as PreguntasModel[];
           console.log(res);
     });
   }
-
-  modificar(){
-    alert('Falta Implementacion');
-  }
-
 }
