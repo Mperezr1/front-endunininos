@@ -11,9 +11,9 @@ import {Grupo} from '../Models/grupo.model';
 
 export class ConsultasService {
 
-  readonly URL = "http://localhost:3000/api/consultas";
-  readonly URL2 = "http://localhost:3000/api/asignacionGrupos";
-  readonly URLEditar = "http://localhost:3000/api/edit";
+  readonly URL = "https://quiet-retreat-14647.herokuapp.com/api/consultas";
+  readonly URL2 = "https://quiet-retreat-14647.herokuapp.com/api/asignacionGrupos";
+  readonly URLEditar = "https://quiet-retreat-14647.herokuapp.com/api/edit";
   //public participantes: Participante[] = [];
   participantes: Participante[] = [];
 
@@ -61,7 +61,7 @@ export class ConsultasService {
       respuesta: "mosaico"
     };
     this.http
-      .post("http://localhost:3000/api/consultas/mosaico",enviarGrupo)
+      .post("https://quiet-retreat-14647.herokuapp.com/api/consultas/mosaico",enviarGrupo)
       .subscribe(res => {
         console.log(res+"estoy aqui");
         });

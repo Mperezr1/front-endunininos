@@ -11,7 +11,7 @@ import { Participante } from "../Models/participante.model";
 export class ParticipanteService {
 
 
-  readonly URL = "http://localhost:3000/api/participantes";
+  readonly URL = "https://quiet-retreat-14647.herokuapp.com/api/participantes";
   private participantes: Participante[] = [];
   private participantesUpdated = new Subject<Participante[]>();
   
@@ -35,7 +35,7 @@ export class ParticipanteService {
 
     pushImage(fd: FormData){      
      this.http
-     .post("http://localhost:3000/api/participantes/foto",fd)
+     .post("https://quiet-retreat-14647.herokuapp.com/api/participantes/foto",fd)
      .subscribe(res => {
      console.log(res+"estoy aqui");
      });

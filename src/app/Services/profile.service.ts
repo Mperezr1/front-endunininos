@@ -10,7 +10,7 @@ export class ProfileService implements OnInit{
 
 getAcudientes(){
 
-  return this.http.get( 'http://localhost:3000/api/profile/acudientes' );
+  return this.http.get( 'https://quiet-retreat-14647.herokuapp.com/api/profile/acudientes' );
 
 }
 ngOnInit(): void {

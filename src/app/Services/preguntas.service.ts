@@ -8,8 +8,8 @@ import { nextTick } from "q";
 
 export class PreguntasService {
 
-    readonly URL = "http://localhost:3000/api/preguntas";
-    readonly URLE = "http://localhost:3000/api/preguntas/modificar-Eliminar";
+    readonly URL = "https://quiet-retreat-14647.herokuapp.com/api/preguntas";
+    readonly URLE = "https://quiet-retreat-14647.herokuapp.com/api/preguntas/modificar-Eliminar";
     preguntas: PreguntasModel[] = [];
     preguntaEliminar: PreguntasModel[] = [];
     private participantesUpdated = new Subject<PreguntasModel[]>();
@@ -23,7 +23,7 @@ export class PreguntasService {
   
     addPost(pp: PreguntasModel) {
       this.http
-      .post("http://localhost:3000/api/preguntas/modificar/modificar-Agregar",pp)
+      .post("https://quiet-retreat-14647.herokuapp.com/api/preguntas/modificar/modificar-Agregar",pp)
         .subscribe(responseData => {
           console.log(responseData);
           this.preguntas.push(pp);
