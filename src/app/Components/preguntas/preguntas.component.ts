@@ -43,7 +43,7 @@ export class PreguntasComponent implements OnInit {
     });
   }
 
-  putPregunta(form: NgForm){
+  putPreguntas(form: NgForm){
     if (form.invalid) {
       return;
     }
