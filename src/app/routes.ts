@@ -3,6 +3,7 @@ import { ParticipantesComponent } from './Components/participantes/participantes
 import { EstadisticasComponent } from './Components/estadisticas/estadisticas.component';
 import { EstadisticasListComponent } from './Components/estadisticas/estadisticas-list/estadisticas-list.component';
 import { PreguntasComponent } from './Components/preguntas/preguntas.component';
+import { MosaicoComponent } from './Components/consultas/mosaico/mosaico.component';
 import { ModificarComponent } from './Components/preguntas/modificar/modificar.component';
 import { ModificarAgregarComponent } from './Components/preguntas/modificar/modificar-Agregar/modificar-Agregar.component';
 import { ModificarEliminarComponent } from './Components/preguntas/modificar/modificar-Eliminar/modificar-Eliminar.component';
@@ -30,6 +31,7 @@ export const appRoutes: Routes = [
     { path: 'estadisticasList', component: EstadisticasListComponent },
     { path: 'cronograma', component: CronogramaComponent },
     { path: 'preguntas', component: PreguntasComponent },
+    { path: 'mosaico', component: MosaicoComponent },
     { path: 'modificar', component: ModificarComponent },
     { path: 'modificar-Agregar', component: ModificarAgregarComponent },
     { path: 'modificar-Eliminar', component: ModificarEliminarComponent },

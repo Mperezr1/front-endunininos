@@ -8,8 +8,8 @@ import { nextTick } from "q";
 
 export class PreguntasService {
 
-    readonly URL = "https://quiet-retreat-14647.herokuapp.com/api/preguntas";
-    readonly URLE = "https://quiet-retreat-14647.herokuapp.com/api/preguntas/modificar-Eliminar";
+    readonly URL = "http://localhost:3000/api/preguntas";
+    readonly URLE = "http://localhost:3000/api/preguntas/modificar-Eliminar";
     preguntas: PreguntasModel[] = [];
     preguntaEliminar: PreguntasModel[] = [];
     private participantesUpdated = new Subject<PreguntasModel[]>();
@@ -23,7 +23,7 @@ export class PreguntasService {
   
     addPost(pp: PreguntasModel) {
       this.http
-      .post("https://quiet-retreat-14647.herokuapp.com/api/preguntas/modificar/modificar-Agregar",pp)
+      .post("http://localhost:3000/api/preguntas/modificar/modificar-Agregar",pp)
         .subscribe(responseData => {
           console.log(responseData);
           this.preguntas.push(pp);
@@ -32,22 +32,14 @@ export class PreguntasService {
     }
 
     getPreguntas() {
-      return this.http.get(this.URL + "getPregunta/");
+      return this.http.get(this.URL + "/getPregunta/");
     }
 
     getPregunta(pregunta: string) {
-        return this.http.get(this.URL + "getPregunta/" + pregunta);
+        return this.http.get(this.URL + "/getPregunta/");
       }
 
-    deletePregunta(test: string) {
-     const preguntaEliminar = {
-       pregunta: test,
-       respuesta: "Otro parametro"
-     };
-     this.http
-      .post("https://quiet-retreat-14647.herokuapp.com/api/preguntas/modificar/modificar-Eliminar",preguntaEliminar)
-      .subscribe(res => {
-      console.log(res+"estoy aqui");
-      });
+    deletePregunta(id: string) {
+     return this.http.delete(this.URL + "/borrarPregunta/" + id);
     }
 }

@@ -17,5 +17,6 @@
       </table>
     </div>
   </form>
-  <button mat-raised-button color="primary" type="submit" class="btn btn-primary" routerLink='/modificar' routerLinkActive="active">Modificar</button>
+  <br>
+  <button *ngIf="isAdmin() || isMonitor()" mat-raised-button color="primary" type="submit" class="btn btn-primary" routerLink='/modificar' routerLinkActive="active">Modificar</button>
 </div>

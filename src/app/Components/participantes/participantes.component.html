@@ -8,213 +8,188 @@
     <input matInput type="text" class="form-control" id="Nombre" name="nombre" placeholder="Nombre" #nombre = "ngModel" ngModel>
   </mat-form-field>
   <mat-form-field>
-    <input matInput type="text" class="form-control" id="apellidos" name="apellidos" placeholder="Primer Apellido" #apellidos = "ngModel" ngModel>
+    <input matInput type="text" class="form-control" id="apellidos" name="apellidos" placeholder="Apellidos" #apellidos = "ngModel" ngModel>
   </mat-form-field>
-  <!-- <div class="form-group">
-    <label for="Genero">Genero</label>
-    <select class="form-control" id="Genero" name = "genero" name = "genero" placeholder="Genero"#genero = "ngModel" ngModel >
-      <option>Masculino</option>
-      <option>Femenino</option>
-      </select>
-    </div> -->
-
-  <!-- <div class="form-group">
-    <label for="TipoDoc">Tipo de documento</label>
-    <select class="form-control" id="tipoDocumento" name="tipoDocumento" #tipoDocumento = "ngModel" ngModel>
-      <option>R.C</option>
-      <option>T.I</option>
-      <option>C.C</option>
-      <option>C.E</option>
-    </select>
-  </div> -->
+  <mat-form-field>
+    <input matInput type="text" class="form-control" id="edadParticipante" name="edadParticipante" placeholder="Edad participante" #edadparticipante = "ngModel" ngModel>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput type="text" class="form-control" id="tipoDoc" name="tipodocumento" placeholder="Tipo Documento" #tipodocumeto = "ngModel" ngModel>
+  </mat-form-field>
   <mat-form-field>
     <input matInput type="text" class="form-control" id="NumeroDoc" name="documento" placeholder="Número Documento" #documeto = "ngModel" ngModel>
   </mat-form-field>
-
-
-  <!-- <div class="form-group">
-    <label for="fechaN">Fecha de Nacimiento</label>
-    <input class="form-control" type="date" value="2011-08-19" name="fechaNacimiento" #fechaNacimiento = "ngModel" ngModel >
-  </div>
-  <div class="form-group">
-    <label for="Eps">EPS</label>
-    <input type="text" class="form-control" id="Eps" name="eps" #eps= "ngModel" ngModel placeholder="EPS">
-  </div> -->
-    <!--  <div class="form-group">
-          <label for="anoIngreso">Fecha de ingreso</label>
-      <input class="form-control" type="date" value="2011-08-19" name="anoIngreso"  id="fechaIngreso" #anoIngreso = "ngModel" ngModel>
-    </div>
-    <div class="form-group">
-        <label for="Estado">Estado</label>
-      <select class="form-control" id="Estado" name ="estado" [(ngModel)]="newParticipante.estado">
-                <option>Activo</option>
-        <option>Inactivo</option>
-      </select>
-    </div>
--->
-
-<!-- <p>Información de Participaciones/Programa</p>
-  <div class="form-group">
-        <label for="nombrePrograma">Nombre</label>
-    <input type="text" class="form-control" id="nombrePrograma" name="nombrePrograma" [(ngModel)]="newPrograma.nombre" placeholder="Nombre del programa">
-  </div> --
-  <div class="form-group">
-        <label for="fechaInicio">Fecha de Inicio</label>
-    <input class="form-control" type="date" value="2011-08-19" name="fechaInicio" [(ngModel)]="newPrograma.fechaInicio" id="fechaInicioP">
-  </div>
-  <div class="form-group">
-        <label for="fechaFinP">Fecha de Fin</label>
-    <input class="form-control" type="date" value="2011-08-19" name="fechaFin" [(ngModel)]="newPrograma.fechaFin" id="fechafinP">
-  </div>
-  
-  <p>Fin de informacion de Programa</p>
--->
-<!--
-  <div class="form-group">
-      <label for="usoImagenP">Uso de Imagen</label>
-      <input type="text" class="form-control" id="usoImagenP" name="UsoDeImagen" placeholder="Uso de Imagen" #usoImagen = "ngModel" ngModel>
-    </div>
-    
-    <p>No sé hacer una lista de contactos</p>
-    <div class="form-group">
-      <label for="Direccion">Direccion</label>
-      <input type="text" class="form-control" id="Direccion" name="direccion" placeholder="Direccion" #direccion = "ngModel" ngModel>
-    </div>
-    <div class="form-group">
-      <label for="Estrato">Estrato</label>
-      <input type="text" class="form-control" id="Estrato" name="estrato" placeholder="Estrato" #estrato = "ngModel" ngModel>
-    </div>
-    <div class="form-group">
-      <label for="Email">Email</label>
-      <input type="text" class="form-control" id="Email" name="email" placeholder="Email" #email = "ngModel" ngModel>
-    </div>-->
-    <!--
-          <p>Datos de Origen</p>
-    <div class="form-group">
-            <label for="TIngreso">Tipo de Ingreso</label>
-      <input type="text" class="form-control" id="TIngreso" name="tipoIngreso" placeholder="Tipo de Ingreso" #tipoIngreso = "ngModel" ngModel>
-    </div>
-    
-    <div class="form-group">
-            <label for="GradoIngreso">Grado de Ingreso</label>
-      <input type="text" class="form-control" id="GradoIngreso" name="gradoIngreso" placeholder="Grado de Ingreso" [(ngModel)]="newOrigen.gradoIngreso">
-    </div>
-    <div class="form-group">
-            <label for="ColegioIngreso">Colegio de ingreso</label>
-      <input type="text" class="form-control" id="ColegioIngreso" name="colegioIngreso" [(ngModel)]="newOrigen.colegioIngreso" placeholder="Colegio de ingreso">
-    </div>
-    <p>Fin de Origen</p>
-  -->
-  <!--
-    <p>informacion de Colegio luego la hago</p>
-    <div class="form-group">
-      <label for="ColegioActual">Colegio Actual</label>
-      <input type="text" class="form-control" id="ColegioActual" name="colegioActual" #colegio="ngModel" ngModel  placeholder="Colegio Actual">
-    </div>
-  -->
-    <!-- <div class="form-group">
-      <label for="GradoActual">Grado Actual</label>
-      <input type="text" class="form-control" id="GradoActual" name="gradoActual" #gradoActual="ngModel" ngModel placeholder="Grado Actual">
-    </div>
-    <p>No sé hacer una lista de acudientes</p> -->
+  <mat-form-field>
+    <mat-select placeholder="Genero" name="generoparticipante" #generoParticipante="ngModel" ngModel>
+      <mat-option *ngFor="let genero of generosparaselector" [value]="genero">
+        {{genero}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field>
+      <input matInput type="date" class="form-control" id="fechanac" name="fechanac" placeholder="Fecha nacimiento" #fechanac = "ngModel" ngModel>
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput type="number" class="form-control" id="telefonopar" name="telefonopar" placeholder="Telefono" #telefonopar = "ngModel" ngModel>
+      </mat-form-field>
+      <mat-form-field>
+          <input matInput type="number" class="form-control" id="celularpar" name="celularpar" placeholder="Celular" #celularpar = "ngModel" ngModel>
+      </mat-form-field>
+    <mat-form-field>
+    <input matInput type="text" class="form-control" id="direccionpar" name="direccionpar" placeholder="Direccion" #direccionpar = "ngModel" ngModel>
+  </mat-form-field>
+  <mat-form-field>
+      <input matInput type="text" class="form-control" id="barrioPar" name="barriopar" placeholder="Barrio participante" #barriopar = "ngModel" ngModel>
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput type="text" class="form-control" id="comunaPar" name="comunapar" placeholder="Comuna" #comunaPar = "ngModel" ngModel>
+      </mat-form-field>
+      <mat-form-field>
+          <input matInput type="text" class="form-control" id="munPar" name="munpar" placeholder="Municipio" #munpar = "ngModel" ngModel>
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput type="number" class="form-control" id="estratopar" name="estratopar" placeholder="Estrato" #estratopar = "ngModel" ngModel>
+          </mat-form-field>
+          <mat-form-field>
+              <input matInput type="email" class="form-control" id="emailPar" name="emailpar" placeholder="Correo electronico" #emailpar = "ngModel" ngModel>
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput type="text" class="form-control" id="epsPar" name="epspar" placeholder="Eps" #epspar = "ngModel" ngModel>
+              </mat-form-field>
     <p>Foto</p>
     <input type="file" (change)="onFileSelected($event)">
     <button mat-button color="primary" class="btn btn.primary" (click)="onUpload()">Cargar</button>
-
-    <p>Información acudiente</p>
+    <h3>INFORMACION DEL COLEGIO</h3>
     <mat-form-field>
-      <input matInput type="text" [(ngModel)]="nombreCompleto" name="nombreCompleto" class="form-control" placeholder="Nombre acudiente" >
-    </mat-form-field>
-    <span class="input-group-addon">
-      <button mat-button color="primary" class="btn btn-primary"(click)="addTask($event)">
-          Añadir acudiente
-      </button>
-    </span>
-    <p>informacion de colegio</p>
-    <mat-form-field>
-      <input matInput type="text" class="form-control" id="nombreColegio" name="nombreColegio" #nombreColegio="ngModel" ngModel placeholder="Nombre Colegio">
-    </mat-form-field>
-    <p>Informacion de contacto de colegio</p>
-    <mat-form-field>
-      <input matInput type="text" [(ngModel)]="nombreCompletoContacto" ngModel name="nombreCompletoContacto" class="form-control" placeholder="nombreCompletoContacto" >
+      <mat-select  name="nombreColegio" #nombreColegio="ngModel" ngModel placeholder="Nombre Colegio">
+          <mat-option *ngFor="let tipo of todosLosColegios" [value]="tipo">
+            {{tipo}}
+          </mat-option>
+        </mat-select>
     </mat-form-field>
     <mat-form-field>
-      <input matInput type="text" [(ngModel)]="celular" name="celular" class="form-control" placeholder="celular" >
+        <input matInput type="text" class="form-control" id="gradoColegio" name="gradoColegio" #gradoColegio="ngModel" ngModel placeholder="Grado actual">
     </mat-form-field>
-    <span class="input-group-addon">
-      <button mat-button color="primary"  class="btn btn-primary"(click)="addContactos($event)">
-          Añadir contactos
-      </button>
-    </span>
-
     <mat-form-field>
-      <input matInput type="text" class="form-control" id="barrioColegio" name="barrioColegio" #barrioColegio="ngModel" ngModel placeholder="Barrio Colegio">
+        <mat-select name="tipocolegio" #tipocolegio="ngModel" placeholder="Tipo de colegio" ngModel>
+          <mat-option *ngFor="let tipo of tiposColegio" [value]="tipo">
+            {{tipo}}
+          </mat-option>
+        </mat-select>
+    </mat-form-field>
+    <mat-form-field>
+        <mat-select name="calendariocolegio" #calenadriocolegio="ngModel" placeholder="Calendario de colegio" ngModel>
+            <mat-option *ngFor="let tipo of calendariosColegios" [value]="tipo">
+              {{tipo}}
+            </mat-option>
+          </mat-select>
     </mat-form-field>
 
-    <!--<table class="table text-center table-hover">
-      <thead>
-        <tr>
-          <th>Status</th>
-          <th>Title</th>
-          <th>Operations</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let task of tasks">
-          <td>
-            <input type="checkbox" [checked]="task.isDone" (click)="updateStatus(task)">
-            </td>
-            <td>{{ task.title }}</td>
-            <td>
-                <button class="btn btn-danger" (click)="deleteTask(task._id)">
-                <i class="fa fa-trash"></i>
-              </button>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    -->
-    <!--
-          <div class="form-group">
-              <label for="activo">Activo</label>
-      <select class="form-control" id="Activo" name ="activo" #activo="ngModel" ngModel>
-                <option>si</option>
-        <option>no</option>
-      </select>
-    </div>
-    
-    
-    <div class="form-group">
-            <label for="Egresado">Egresado</label>
-      <select class="form-control" id="Egresado" name ="egresado" [(ngModel)]="newParticipante.egresado">
-                <option>si</option>
-        <option>no</option>
-      </select>
-    </div>
-  -->
-    <!-- <div class="form-group">
-      <label for="Ocupacion">Ocupacion</label>
-      <input type="text" class="form-control" id="Ocupacion" name="ocupacion" placeholder="Ocupacion" #ocupacion ="ngModel" ngModel>
-    </div>
-    <div class="form-group">
-      <label for="AreaLaboral">AreaLaboral</label>
-      <input type="text" class="form-control" id="AreaLaboral" name="areaLaboral" placeholder="Área Laboral" #areaLaboral ="ngModel" ngModel>
-    </div>
-    <div class="form-group">
-      <label for="NivelFormacion">Nivel de formacion</label>
-      <input type="text" class="form-control" id="NivelFormacion" name="nivelFormacion" placeholder="Nivel de Formación" #nivelFormacion ="ngModel" ngModel>
-    </div>
-    
-    <div class="form-group">
-      <label for="ProgramaAcademico">Programa Academica</label>
-      <input type="text" class="form-control" id="ProgramaAcademico" name="programaAcademico" placeholder="Programa Academico" #programaAcademico ="ngModel" ngModel>
-    </div>
-    
-    <p>Luego hago la universidad</p>
-    <div class="form-group">
-      <label for="Observaciones">Obervaciones</label>
-      <textarea class="form-control" id="Observaciones" rows="3" name="observaciones" #observaciones ="ngModel" ngModel></textarea>
-      </div> -->
+    <h3>Informacion acudientes</h3>
+    <h4>Padre</h4>
+    <mat-form-field>
+        <input matInput type="text" class="form-control" id="nombrepadre" name="nombrepadre" #nombrepadre="ngModel" ngModel placeholder="Nombre del padre ">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput type="text" class="form-control" id="apellpadre" name="apellpadre" #apellpadre="ngModel" ngModel placeholder="Apellido del padre ">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput type="text" class="form-control" id="tipodocpadre" name="tipodocpadre" #tipodocpadre="ngModel" ngModel placeholder="Tipo de documento del padre ">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput type="text" class="form-control" id="docpadre" name="docpadre" #docpadre="ngModel" ngModel placeholder="Documento del padre ">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput type="text" class="form-control" id="celularpadre" name="celularpadre" #celularpadre="ngModel" ngModel placeholder="Celular del padre ">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput type="text" class="form-control" id="emailpadre" name="emailpadre" #emailpadre="ngModel" ngModel placeholder="Email del padre ">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput type="text" class="form-control" id="niveldeformacionpadre" name="niveldeformacionpadre" #niveldeformacionpadre="ngModel" ngModel placeholder="Nivel de formacion del padre ">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput type="text" class="form-control" id="areaconpadre" name="areaconpadre" #areaconpadre="ngModel" ngModel placeholder="Area de conocimiento del padre ">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput type="text" class="form-control" id="ocupacionpadre" name="ocupacionpadre" #ocupacionpadre="ngModel" ngModel placeholder="Ocupacion del padre ">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput type="text" class="form-control" id="lugardetrabajopadre" name="lugardetrabajopadre" #lugardetrabajopadre="ngModel" ngModel placeholder="Lugar de trabajo del padre ">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput type="text" class="form-control" id="teltrabajopadre" name="teltrabajopadre" #teltrabajopadre="ngModel" ngModel placeholder="Telefono del trabajo del padre ">
+    </mat-form-field>
+    <h4>Madre</h4>
+    <mat-form-field>
+        <input matInput type="text" class="form-control" id="nombreMadre" name="nombreMadre" #nombreMadre="ngModel" ngModel placeholder="Nombre de la Madre">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput type="text" class="form-control" id="apellMadre" name="apellMadre" #apellMadre="ngModel" ngModel placeholder="Apellido de la Madre">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput type="text" class="form-control" id="tipodocMadre" name="tipodocMadre" #tipodocMadre="ngModel" ngModel placeholder="Tipo de documento de la Madre">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput type="text" class="form-control" id="docMadre" name="docMadre" #docMadre="ngModel" ngModel placeholder="Documento de la Madre">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput type="text" class="form-control" id="celularMadre" name="celularMadre" #celularMadre="ngModel" ngModel placeholder="Celular de la Madre">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput type="text" class="form-control" id="emailMadre" name="emailMadre" #emailMadre="ngModel" ngModel placeholder="Email de la  Madre">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput type="text" class="form-control" id="niveldeformacionMadre" name="niveldeformacionMadre" #niveldeformacionMadre="ngModel" ngModel placeholder="Nivel de formacion de la Madre">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput type="text" class="form-control" id="areaconMadre" name="areaconMadre" #areaconMadre="ngModel" ngModel placeholder="Area de conocimiento de la Madre">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput type="text" class="form-control" id="ocupacionMadre" name="ocupacionMadre" #ocupacionMadre="ngModel" ngModel placeholder="Ocupacion de la Madre">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput type="text" class="form-control" id="lugardetrabajoMadre" name="lugardetrabajoMadre" #lugardetrabajoMadre="ngModel" ngModel placeholder="Lugar de trabajo de la Madre">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput type="text" class="form-control" id="teltrabajoMadre" name="teltrabajoMadre" #teltrabajoMadre="ngModel" ngModel placeholder="Telefono del trabajo de la Madre">
+    </mat-form-field>
+    <h4>Otro</h4>
+    <mat-form-field>
+        <input matInput type="text" class="form-control" id="nombreotro" name="nombreotro" #nombreotro="ngModel" ngModel placeholder="Nombre de otro ">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput type="text" class="form-control" id="apellotro" name="apellotro" #apellotro="ngModel" ngModel placeholder="Apellido de otro ">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput type="text" class="form-control" id="tipodocotro" name="tipodocotro" #tipodocotro="ngModel" ngModel placeholder="Tipo de documento de otro ">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput type="text" class="form-control" id="docotro" name="docotro" #docotro="ngModel" ngModel placeholder="Documento de otro ">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput type="text" class="form-control" id="celularotro" name="celularotro" #celularotro="ngModel" ngModel placeholder="Celular de otro ">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput type="text" class="form-control" id="emailotro" name="emailotro" #emailotro="ngModel" ngModel placeholder="Email de otro ">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput type="text" class="form-control" id="niveldeformacionotro" name="niveldeformacionotro" #niveldeformacionotro="ngModel" ngModel placeholder="Nivel de formacion de otro ">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput type="text" class="form-control" id="areaconotro" name="areaconotro" #areaconotro="ngModel" ngModel placeholder="Area de conocimiento de otro ">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput type="text" class="form-control" id="ocupacionotro" name="ocupacionotro" #ocupacionotro="ngModel" ngModel placeholder="Ocupacion de otro ">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput type="text" class="form-control" id="lugardetrabajootro" name="lugardetrabajootro" #lugardetrabajootro="ngModel" ngModel placeholder="Lugar de trabajo de otro ">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput type="text" class="form-control" id="teltrabajootro" name="teltrabajootro" #teltrabajootro="ngModel" ngModel placeholder="Telefono del trabajo de otro ">
+    </mat-form-field>
+    <br>
+    <br>
       <button mat-raised-button color="primary"	 type="submit" >Enviar</button>
     </mat-card>
     </form>

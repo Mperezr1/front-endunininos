@@ -22,13 +22,13 @@ constructor(private http: HttpClient) { }
 //Se congen los datos del back-end
 getEstadisticasParticipacionAnual() {
 
-  this.http.get<{ message: string; participacionAn: any[] }>( 'https://quiet-retreat-14647.herokuapp.com/api/estadisticasList' )
+  this.http.get<{ message: string; participacionAn: any[] }>( 'http://localhost:3000/api/estadisticasList' )
       .subscribe(postData => {
         const setData: EstadisticaColegios = {
           barChartType: "bar", 
-          barChartLabels: ['2000','2001','2002','2003','2004','2005','2006','2007','2008','2009','2010','2011','2012','2013','2014','2015','2016', '2017', '2018'],
+          barChartLabels: [],
           barChartLenged: false,
-          barChartData: [{data: postData.participacionAn, label:"Participaciones"}]
+          barChartData: [{data: postData.participacionAn, label:"Participantes"}]
         };
         this.estadisticasParAnual = setData;
         this.estadisticasParAnualUpdated.next(this.estadisticasParAnual);
@@ -37,7 +37,7 @@ getEstadisticasParticipacionAnual() {
 }
 
 getEstadisticasParticipantesActivosPorCole() {
-  this.http.get< {message: string, participacionAn: [[number]]}>('https://quiet-retreat-14647.herokuapp.com/api/estadisticasListColegioActivo')
+  this.http.get< {message: string, participacionAn: [[number]]}>('http://localhost:3000/api/estadisticasListColegioActivo')
   .subscribe(postData => {
     const colegios = ['colombo americano', 'colombo frances', 'colombo ingles','la compañia de maria', 'montessori', 'the columbus school','seminario corazonista','inem'];
     let chartDataToSet: [{data: [number], label:string}] = [{data: null, label: null}];
@@ -71,7 +71,7 @@ postConsultaEstadistica(
     barChartData: barCharDataIn
   }
   this.http
-    .post<{ message: string }>("https://quiet-retreat-14647.herokuapp.com/api/estadisticasCreate", post)
+    .post<{ message: string }>("http://localhost:3000/api/estadisticasCreate", post)
     .subscribe(responseData => {
       console.log(responseData.message);
     });

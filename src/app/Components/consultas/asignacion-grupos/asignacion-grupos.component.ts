@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ConsultasService } from '../../../Services/consultas.service';
 import { NgForm } from "@angular/forms";
-import { ParticipantePrueba } from '../../../Models/Pruebas/participantePrueba.model';
+import { Participante } from '../../../Models/Participante.model';
 
 @Component({
   selector: 'app-asignacion-grupos',
@@ -44,8 +44,7 @@ export class AsignacionGruposComponent implements OnInit {
     
     this.consultasService.getDocumento2(form.value.numeroDocumento)
         .subscribe(res => {
-          //this.consultasService.participantes = res as Participante[];
-          this.consulta = this.consultasService.participantes = res as ParticipantePrueba[];
+          this.consulta = this.consultasService.participantes = res as Participante[];
           
           console.log(res);
     });

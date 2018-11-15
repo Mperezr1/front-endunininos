@@ -1,17 +1,16 @@
 import { Injectable, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Participante } from '../Models/participante.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProfileService implements OnInit{
+  participantes: Participante[] = [];
 
 getAcudientes(){
 
-  this.http.get<{ message: string; participacionAn: any[] }>( 'https://quiet-retreat-14647.herokuapp.com/api/profile/acudientes' )
-      .subscribe(postData => {
-        console.log(postData);
-      });
+  return this.http.get( 'http://localhost:3000/api/profile/acudientes' );
 
 }
 ngOnInit(): void {

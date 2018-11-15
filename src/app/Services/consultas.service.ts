@@ -1,11 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient,HttpHeaders } from "@angular/common/http";
-import { ParticipantePrueba } from '../Models/Pruebas/participantePrueba.model';
 import { Participante } from '../Models/participante.model';
-import { Subject } from "rxjs";
-
-import {Grupo} from '../Models/Pruebas/grupoPrueba.model';
-import { mapToExpression } from '@angular/compiler/src/render3/view/util';
+import {Grupo} from '../Models/grupo.model';
 
 
 
@@ -15,11 +11,11 @@ import { mapToExpression } from '@angular/compiler/src/render3/view/util';
 
 export class ConsultasService {
 
-  readonly URL = "https://quiet-retreat-14647.herokuapp.com/api/consultas";
-  readonly URL2 = "https://quiet-retreat-14647.herokuapp.com/api/asignacionGrupos";
-  readonly URLEditar = "https://quiet-retreat-14647.herokuapp.com/api/edit";
+  readonly URL = "http://localhost:3000/api/consultas";
+  readonly URL2 = "http://localhost:3000/api/asignacionGrupos";
+  readonly URLEditar = "http://localhost:3000/api/edit";
   //public participantes: Participante[] = [];
-  participantes: ParticipantePrueba[] = [];
+  participantes: Participante[] = [];
 
   constructor(private http: HttpClient) { }
 
@@ -29,6 +25,10 @@ export class ConsultasService {
 
   getParticipantes(param, tipo: string) {
     return this.http.get(this.URL + tipo + "/" + param);
+  }
+
+  getParticipantesAcudiente(param, tipo: string) {
+    return this.http.get(this.URL + "Acudiente/" + param);
   }
 
   editParticipante(id, nuevo, campo: string) {
@@ -61,7 +61,7 @@ export class ConsultasService {
       respuesta: "mosaico"
     };
     this.http
-      .post("https://quiet-retreat-14647.herokuapp.com/api/consultas/mosaico",enviarGrupo)
+      .post("http://localhost:3000/api/consultas/mosaico",enviarGrupo)
       .subscribe(res => {
         console.log(res+"estoy aqui");
         });

@@ -1,0 +1,37 @@
+<div class="sidebar">
+  <a routerLink='/consultas' routerLinkActive="active">Consultar participantes</a>
+  <a routerLink= '/asignacionGrupos' routerLinkActive="active">Asignación de grupos</a>
+  <a routerLink= '/crearGrupo' routerLinkActive="active">Crear Grupo</a>
+  <a routerLink= '/mosaico' routerLinkActive="active">Mosaico</a>
+
+</div>
+<div class="content">
+
+    <form (submit)="getParticipante(postForm)"  #postForm= "ngForm">
+            
+        <mat-form-field>
+            <input matInput type="text" class="form-control" id="grupo" name="grupo" placeholder="Ejemplo: 123456789" ngModel>
+        </mat-form-field>
+
+        <button mat-raised-button color="primary" type="submit" class="btn btn-primary">Submit</button>
+    </form>
+
+    <div class="col s7">
+        <table class="striped highlight black-text">
+          <thead>
+            <th>Nombre</th>
+            <th>Imagen</th>
+            <th>Grupo</th>
+          </thead>
+          <tbody>
+            <tr *ngFor="let participante of consultasService.participantes">
+              <td>{{ participante.nombre }}</td>
+              <td><img src="../../../../../webApiUnininos.API/"+ {{participante.imagen}}/></td>
+              <td>{{ participante.grupo }}</td>
+              <td>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+    </div>
+</div>

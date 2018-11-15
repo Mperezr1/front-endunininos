@@ -13,7 +13,7 @@ export class DescargaDatosService {
  
    
   constructor(private http: HttpClient) { }
-  readonly URL = "https://quiet-retreat-14647.herokuapp.com/api/descarga";
+  readonly URL = "http://localhost:3000/api/descarga";
   descargaParticipantesService(fileName:string)  {
     var body = { filename: fileName};
     console.log("entra al servicio")

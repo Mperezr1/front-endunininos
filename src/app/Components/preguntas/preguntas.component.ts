@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { NgForm } from "@angular/forms";
 import { PreguntasService } from '../../Services/preguntas.service';
+import { AuthService} from '../../Services/auth.service';
 import { PreguntasModel } from '../../Models/pregunta.model';
 
 @Component({
@@ -10,13 +11,39 @@ import { PreguntasModel } from '../../Models/pregunta.model';
 })
 export class PreguntasComponent implements OnInit {
 
-  constructor(public preguntasService: PreguntasService) {
-    preguntasService.getPreguntas();
+  userIsAuthenticated = false;
+
+  isAdmin() {
+    if(this.authService.actualPriority === 2){
+      return true;
+    }else{
+      return false;
+    }
+  }
+
+  isMonitor() {
+    if(this.authService.actualPriority === 1){
+      return true;
+    }else{
+      return false;
+    }
   }
 
   ngOnInit() {}
 
-  putPreguntas(form: NgForm){
+  constructor(public preguntasService: PreguntasService, private authService: AuthService) {
+    this.getPreguntas();
+  }
+
+  getPreguntas(){
+    this.preguntasService.getPreguntas()
+    .subscribe(res => {
+      this.preguntasService.preguntas = res as PreguntasModel[];
+      console.log(res);
+    });
+  }
+
+  putPregunta(form: NgForm){
     if (form.invalid) {
       return;
     }

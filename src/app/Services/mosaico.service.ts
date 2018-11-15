@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
-import { ParticipantePrueba } from '../Models/Pruebas/participantePrueba.model';
+import { Participante } from '../Models/participante.model';
 import { Subject } from "rxjs";
 import { nextTick } from "q";
 

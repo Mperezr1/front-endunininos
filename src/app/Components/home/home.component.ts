@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from "@angular/forms";
+import { Subscription } from 'rxjs';
+import { AuthService} from '../../Services/auth.service';
 import { CronogramaService } from '../../Services/cronograma.service';
 import { Actividad } from '../../Models/programa.model';
 
@@ -10,8 +12,26 @@ import { Actividad } from '../../Models/programa.model';
 })
 export class HomeComponent implements OnInit {
   programaActual = "Calendario"; 
+  private authListenerSubs: Subscription;
+  userIsAuthenticated = false;
 
-  constructor(public cronogramaService: CronogramaService) { }
+  isAdmin() {
+    if(this.authService.actualPriority === 2){
+      return true;
+    }else{
+      return false;
+    }
+  }
+
+  isMonitor() {
+    if(this.authService.actualPriority === 1){
+      return true;
+    }else{
+      return false;
+    }
+  }
+
+  constructor(public cronogramaService: CronogramaService, private authService: AuthService) { }
 
   ngOnInit(){
     this.realizarGet("Calendario");
@@ -26,10 +46,11 @@ export class HomeComponent implements OnInit {
   }
 
   agregarActividad(form: NgForm){
-    alert(form.value.nombre + "  " +form.value.fecha + "  Calendario");
-    if (form.invalid || form.value.nombre == null || form.value.fecha == null) {
+    if (form.invalid || form.value.nombre == null || form.value.fecha == null|| form.value.nombre == "" || form.value.fecha == "") {
+      alert("Es necesario agregar nombre y fecha a la actividad para agregarla");
       return;
     }
+    alert(form.value.nombre + "  " +form.value.fecha + "  Calendario");
     const actividad : Actividad = {
       nombre : form.value.nombre,
       fecha: form.value.fecha

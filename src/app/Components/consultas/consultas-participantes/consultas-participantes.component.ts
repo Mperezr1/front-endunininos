@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from "@angular/forms";
 import { ConsultasService } from '../../../Services/consultas.service';
-import { ParticipantePrueba } from '../../../Models/Pruebas/participantePrueba.model';
+import { Participante } from '../../../Models/participante.model';
 import { Cambio } from '../cambio';
 import { MatRadioChange } from '@angular/material';
-import {saveAs} from 'file-saver';
+import { saveAs } from 'file-saver';
 
 
 @Component({
@@ -17,6 +17,7 @@ export class ConsultasParticipantesComponent implements OnInit {
   cambios: [Cambio] = [null];
   tipoConsulta: string;
   consulta: {};
+  ;
 
   onChange(cambio: MatRadioChange) {
     this.tipoConsulta = cambio.value;
@@ -30,8 +31,7 @@ export class ConsultasParticipantesComponent implements OnInit {
   traerTodos() {
     this.consultasService.getTodos()
         .subscribe(res => {
-          //this.consultasService.participantes = res as Participante[];
-          this.consultasService.participantes = res as ParticipantePrueba[];
+          this.consultasService.participantes = res as Participante[];
           console.log(res);
     });
   }
@@ -43,9 +43,8 @@ export class ConsultasParticipantesComponent implements OnInit {
     
     this.consultasService.getParticipantes(form.value.parameter, this.tipoConsulta)
         .subscribe(res => {
-          //this.consultasService.participantes = res as Participante[];
-         this.consulta=  this.consultasService.participantes = res as ParticipantePrueba[];
-          console.log(res);
+         this.consulta=  this.consultasService.participantes = res as Participante[];
+          console.log(this.consultasService.participantes);
     });
   }
 

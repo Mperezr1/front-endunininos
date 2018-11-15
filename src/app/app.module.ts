@@ -7,6 +7,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { ChartsModule } from 'ng2-charts/ng2-charts';
 import { AppComponent } from './app.component';
+import { MosaicoComponent} from './Components/consultas/mosaico/mosaico.component'; 
 import { PreguntasComponent } from './Components/preguntas/preguntas.component';
 import { ModificarComponent } from './Components/preguntas/modificar/modificar.component';
 import { ModificarAgregarComponent } from './Components/preguntas/modificar/modificar-Agregar/modificar-Agregar.component';
@@ -43,6 +44,7 @@ import { RegistroMonitorComponent } from './Components/participantes/registro-mo
       HeaderComponent,
       LoginComponent,
       SignupComponent,
+      MosaicoComponent,
       PreguntasComponent,
       ModificarComponent,
       ModificarAgregarComponent,

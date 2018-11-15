@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { PruebasService } from 'src/app/Services/pruebas.service';
-import { Grupo } from '../../../Models/Pruebas/grupoPrueba.model';
+import { Grupo } from '../../../Models/grupo.model';
 
 @Component({
   selector: 'app-crear-grupo',
@@ -25,7 +25,7 @@ export class CrearGrupoComponent implements OnInit {
     form.resetForm();
   }
 
-  agregarGrupoPrueba(form: NgForm){
+  agregarGrupo(form: NgForm){
     if (form.invalid) {
       return;
     }

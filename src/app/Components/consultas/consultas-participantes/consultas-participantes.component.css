@@ -70,6 +70,9 @@ mat-radio-button[type="radio"] {
 button.descarga{
 
   left: 100px;
-  bottom: 35px;
+  bottom: 49px;
 
+}
+button.traer{
+  left: 30%;
 }

@@ -1,62 +1,59 @@
-import { Programa } from "./programa.model";
 import { Barrio } from "./barrio.model";
-import { Universidad } from "./universidad.model";
 import { Colegio } from "./colegio.model";
-
-
-
-
 
 export class Participante {
     constructor(
-        nombre: string,
-        apellidos: string,
-        nombreCompleto: string,
+        estadodb: string,
+        estado: string,
         imagen: string,
+        edadParticipaciones: number,
         genero: string,
+        nombre: string,
+        nombreCompleto: string,
         tipoDocumento: string,
         documento: string,
-        fechaNacimiento: Date,
-        eps: string,
-        añoIngreso: Date,
-        lastUpdate: Date,
-        estado: string,
-        participaciones: Programa,
-        usoDeImagen: string,
-        numerosContacto: [string],
+        fechaNacimiento: string,
+        telefono: number,
+        celular: number,
         direccion: string,
-        estrato: string,
         barrio: Barrio,
+        estrato: string,
         email: string,
+        eps: string,
         origen: Origen,
         colegioActual: Colegio,
         gradoActual: string,
-        acudientes: [Acudiente],
-        activo: boolean,
         egresado: boolean,
         ocupacion: string,
         areaLaboral: string,
         nivelFormacion: string,
         programaAcademico: string,
+        universidad: string,
         observaciones : string,
-        universidad: Universidad
+        acudientes: [Acudiente],
+        activo: boolean,
+        participaciones: [Participacion],
+        numParticipaciones: Number, 
+        participacionExpediciones:  Boolean, 
     ){}
 }
 
 export class Origen {
     constructor(
+        // si llena colegio colegio sino otro
         tipoIngreso: string,
+        colegioIngreso: Colegio,
         gradoIngreso: string,
-        colegioIngreso: Colegio
+        añoIngreso: Date
     ){}
 }
 
 export class Acudiente {
     constructor(
+        relacion: string,
         nombreCompleto: string,
         tipoDocumento: string,
         documento: string,
-        relacion: string,
         celular: string,
         email: string,
         nivelFormacion: string,
@@ -64,5 +61,13 @@ export class Acudiente {
         ocupacion: string,
         lugarTrabajo: string,
         telefonoTrabajo: string
+    ){}
+}
+
+export class Participacion {
+    constructor(
+        programa: string,
+        nombre: string,
+        grupo: string,
     ){}
 }

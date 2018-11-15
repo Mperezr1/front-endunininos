@@ -1,1 +1,36 @@
 <h1 style="text-align:center">Bienvenido </h1>
+<div class="container">
+    <mat-card>
+
+    <span *ngIf=" isParent() ">
+        <table class="striped highlight black-text">
+            <thead>
+            
+              <th>Nombre</th>
+              <th>Documento</th>
+              <th>Colegio</th>
+              <th>Teléfono</th>
+              <th>Celular</th>
+              <th>Dirección</th>
+              <th>Correo</th>
+              <th>EPS</th>
+              <th>Fecha de Nacimiento</th>
+            </thead>
+            <tbody>
+                <tr *ngFor="let participante of this.profileService.participantes">
+                    <td >{{ participante.nombreCompleto }}</td>
+                    <td >{{ participante.documento }}</td>
+                    <td >{{ participante.colegioActual.nombre }}</td>
+                    <td >{{ participante.telefono }}</td>
+                    <td >{{ participante.celular }}</td>
+                    <td >{{ participante.direccion }}</td>
+                    <td>{{ participante.email }}</td>
+                    <td >{{ participante.eps }}</td>
+                    <td >{{ participante.fechaNacimiento }}</td>
+                
+
+            </tbody>
+        </table>
+    </span>
+    </mat-card>
+</div>

@@ -3,13 +3,12 @@
   <a routerLink='/consultas' routerLinkActive="active">Consultar participantes</a>
   <a routerLink= '/asignacionGrupos' routerLinkActive="active">Asignación de grupos</a>
   <a routerLink= '/crearGrupo' routerLinkActive="active">Crear Grupo</a>
-  <a routerLink= '/descarga' routerLinkActive="active">Descargas</a>
 
 </div>
 
 <div class="content">
 
-    <button mat-raised-button color="primary" (click)="traerTodos()">Traer todos</button><pre></pre>
+    
     <mat-radio-group (change)="onChange($event)" name="consulta">
         <mat-radio-button type="radio" value="Nombre" color="primary">Nombre</mat-radio-button><pre></pre>
         <mat-radio-button type="radio" value="Documento" color="primary">Documento</mat-radio-button><pre></pre>
@@ -23,35 +22,94 @@
         <mat-form-field>
             <input matInput type="text" class="form-control" id="parameter" name="parameter" placeholder="Ejemplo: 123456789" ngModel>
         </mat-form-field>
-
+        <div class="container">
         <button mat-raised-button color="primary" type="submit" class="btn btn-primary">Buscar</button>
+        </div>
     </form>
-    <button class="descarga" (click)="descarga()" mat-raised-button color="primary" >Descargar Consulta</button>
-
+    <div class="container">
+       <button class="descarga" (click)="descarga()" mat-raised-button color="primary" >Descargar Consulta</button>
+      </div>
+       <app-descarga-datos></app-descarga-datos>
     <div class="col s7">
         <table class="striped highlight black-text">
           <thead>
             <th>Nombre</th>
             <th>Documento</th>
-            <th>Grupo</th>
             <th>Colegio</th>
+            <th>Teléfono</th>
+            <th>Celular</th>
+            <th>Dirección</th>
+            <th>Correo</th>
+            <th>EPS</th>
+            <th>Fecha de Nacimiento</th>
           </thead>
           <tbody>
             <tr *ngFor="let participante of consultasService.participantes">
-              <td *ngIf="!editMode">{{ participante.nombre }}</td>
+              <td *ngIf="!editMode">{{ participante.nombreCompleto }}</td>
               <td *ngIf="!editMode">{{ participante.documento }}</td>
-              <td *ngIf="!editMode">{{ participante.grupo }}</td>
-              <td *ngIf="!editMode">{{ participante.colegio.nombre }}</td>
+              <td *ngIf="!editMode">{{ participante.colegioActual.nombre }}</td>
+              <td *ngIf="!editMode">{{ participante.telefono }}</td>
+              <td *ngIf="!editMode">{{ participante.celular }}</td>
+              <td *ngIf="!editMode">{{ participante.direccion }}</td>
+              <td *ngIf="!editMode">{{ participante.email }}</td>
+              <td *ngIf="!editMode">{{ participante.eps }}</td>
+              <td *ngIf="!editMode">{{ participante.fechaNacimiento }}</td>
+                         <table class="striped highlight black-text">
+                              <thead>
+                                <th>Nombre</th>
+                                <th>Relación</th>
+                                <th>Celular</th>
+                                <th>Email</th>
+                                <th>Lugar de Trabajo</th>
+                                <th>Teléfono de Trabajo</th>
+                              </thead>
+                              <tbody>
+                                <tr *ngFor="let acudiente of participante.acudientes">
+                                  <td *ngIf="!editMode">{{ acudiente.nombreCompleto }}</td>
+                                  <td *ngIf="!editMode">{{ acudiente.relacion }}</td>
+                                  <td *ngIf="!editMode">{{ acudiente.celular }}</td>
+                                  <td *ngIf="!editMode">{{ acudiente.email }}</td>
+                                  <td *ngIf="!editMode">{{ acudiente.lugarTrabajo }}</td>
+                                  <td *ngIf="!editMode">{{ acudiente.telefonoTrabajo }}</td> 
+
+
+                                  <td *ngIf="editMode" contenteditable="true" (blur)="prepararCambio(acudiente._id, $event.srcElement.textContent, 'nombreCompleto')">{{ acudiente.nombreCompleto }}</td>
+                                  <td *ngIf="editMode" contenteditable="true" (blur)="prepararCambio(acudiente._id, $event.srcElement.textContent, 'relacion')">{{ acudiente.relacion }}</td>
+                                  <td *ngIf="editMode" contenteditable="true" (blur)="prepararCambio(acudiente._id, $event.srcElement.textContent, 'celular')">{{ acudiente.celular }}</td>
+                                  <td *ngIf="editMode" contenteditable="true" (blur)="prepararCambio(acudiente._id, $event.srcElement.textContent, 'email')">{{ acudiente.email }}</td>
+                                  <td *ngIf="editMode" contenteditable="true" (blur)="prepararCambio(acudiente._id, $event.srcElement.textContent, 'lugarTrabajo')">{{ acudiente.lugarTrabajo }}</td>
+                                  <td *ngIf="editMode" contenteditable="true" (blur)="prepararCambio(acudiente._id, $event.srcElement.textContent, 'telefonoTrabajo')">{{ acudiente.telefonoTrabajo }}</td>
+                                  <td *ngIf="editMode"> 
+                                    <a (click)="guardar();editMode=false">
+                                      <i class="material-icons">done</i></a>
+                                  </td>
+                                  <td *ngIf="editMode"> 
+                                      <a (click)="cancelar();editMode=false">
+                                        <i class="material-icons">clear</i></a>
+                                    </td>
+                                  <td *ngIf="editMode"> 
+                                      <a (click)="eliminar(participante._id, participante.nombre)">
+                                        <i class="material-icons">delete</i></a>
+                                    </td>
+
+                                </tr>
+                              </tbody>
+                         </table>
               <td *ngIf="!editMode">
                   <a (click)="editMode=true">
                     <i class="material-icons">edit</i></a>
               </td>
 
 
-              <td *ngIf="editMode" contenteditable="true" (blur)="prepararCambio(participante._id, $event.srcElement.textContent, 'nombre')">{{ participante.nombre }}</td>
+              <td *ngIf="editMode" contenteditable="true" (blur)="prepararCambio(participante._id, $event.srcElement.textContent, 'nombreCompleto')">{{ participante.nombreCompleto }}</td>
               <td *ngIf="editMode" contenteditable="true" (blur)="prepararCambio(participante._id, $event.srcElement.textContent, 'documento')">{{ participante.documento }}</td>
-              <td *ngIf="editMode" contenteditable="true" (blur)="prepararCambio(participante._id, $event.srcElement.textContent, 'grupo')">{{ participante.grupo }}</td>
-              <td *ngIf="editMode" contenteditable="true" (blur)="prepararCambio(participante._id, $event.srcElement.textContent, 'colegio.nombre')" >{{ participante.colegio.nombre }}</td>
+              <td *ngIf="editMode" contenteditable="true" (blur)="prepararCambio(participante._id, $event.srcElement.textContent, 'colegioActual.nombre')">{{ participante.colegioActual.nombre }}</td>
+              <td *ngIf="editMode" contenteditable="true" (blur)="prepararCambio(participante._id, $event.srcElement.textContent, 'telefono')" >{{ participante.telefono }}</td>
+              <td *ngIf="editMode" contenteditable="true" (blur)="prepararCambio(participante._id, $event.srcElement.textContent, 'celular')">{{ participante.celular }}</td>
+              <td *ngIf="editMode" contenteditable="true" (blur)="prepararCambio(participante._id, $event.srcElement.textContent, 'direccion')">{{ participante.direccion }}</td>
+              <td *ngIf="editMode" contenteditable="true" (blur)="prepararCambio(participante._id, $event.srcElement.textContent, 'email')">{{ participante.email }}</td>
+              <td *ngIf="editMode" contenteditable="true" (blur)="prepararCambio(participante._id, $event.srcElement.textContent, 'eps')" >{{ participante.eps }}</td>
+              <td *ngIf="editMode" contenteditable="true" (blur)="prepararCambio(participante._id, $event.srcElement.textContent, 'fechaNacimiento')">{{ participante.fechaNacimiento }}</td>
               <td *ngIf="editMode"> 
                 <a (click)="guardar();editMode=false">
                   <i class="material-icons">done</i></a>

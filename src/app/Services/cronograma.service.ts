@@ -9,7 +9,7 @@ import { Actividad } from '../Models/programa.model';
 
 export class CronogramaService {
 
-  readonly URL = "https://quiet-retreat-14647.herokuapp.com/api/";
+  readonly URL = "http://localhost:3000/api/";
   actividades: Actividad[] = [];
 
   constructor(private http: HttpClient) { }

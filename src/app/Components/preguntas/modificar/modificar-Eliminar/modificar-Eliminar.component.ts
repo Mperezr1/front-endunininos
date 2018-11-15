@@ -10,45 +10,39 @@ import { PreguntasModel } from '../../../../Models/pregunta.model';
 })
 export class ModificarEliminarComponent implements OnInit {
 
-  constructor(public PreguntaService: PreguntasService) { 
-    PreguntaService.getPreguntas();
+  constructor(public preguntasService: PreguntasService) {
+    this.getPreguntas();
   }
 
-  ngOnInit() {
+  ngOnInit() {}
+
+  getPreguntas(){
+    this.preguntasService.getPreguntas()
+    .subscribe(res => {
+      this.preguntasService.preguntas = res as PreguntasModel[];
+      console.log(res);
+    });
   }
 
-  getPregunta(form: NgForm){
+  putPregunta(form: NgForm){
     if (form.invalid) {
       return;
     }
     
-    this.PreguntaService.getPregunta(form.value.pregunta)
+    this.preguntasService.getPregunta(form.value.pregunta)
         .subscribe(res => {
-          this.PreguntaService.preguntas = res as PreguntasModel[];
-          alert('Se ha eliminado una pregunta ' + form.value.preguntaE);
+          this.preguntasService.preguntas = res as PreguntasModel[];
           console.log(res);
-          form.resetForm();
     });
   }
 
-  AddPost(form: NgForm){
-    if (form.invalid) {
-      return;
+  borrarPregunta(id,pregunta: string){
+    if(confirm("Se borrará la pregunta "+pregunta)){
+      this.preguntasService.deletePregunta(id)
+        .subscribe();
+      this.getPreguntas();
     }
-    this.PreguntaService.addPost(form.value);    
-    alert('Se ha agregado una pregunta ' + form.value.preguntaE);
-    form.resetForm();
-  }
-
-  deletePost(form: NgForm){
-    console.log("entro "+ form.value.preguntaE);
-    if (form.invalid) {
-      return;
-    }
-    this.PreguntaService.deletePregunta(form.value.preguntaE);
-    alert('Se ha eliminado una pregunta ' + form.value.preguntaE);
-    form.resetForm();
-    this.PreguntaService.getPreguntas();
+    this.getPreguntas();
   }
 } 
 

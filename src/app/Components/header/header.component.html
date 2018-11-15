@@ -9,7 +9,7 @@
             <a routerLink='/perfil' routerLinkActive="active">
                 <mat-icon  aria-label="perfilButton">face</mat-icon>
             </a>
-        </span>
+    </span>
       
     <span *ngIf="userIsAuthenticated &&  isAdmin() ">
         <a routerLink='/participantes' routerLinkActive="active">
@@ -29,26 +29,29 @@
         </a>
     </span>
 
-    <span *ngIf="userIsAuthenticated">
-        <a routerLink='/preguntas' routerLinkActive="active">
-            <mat-icon  aria-label="preguntasButton">question_answer</mat-icon>
-        </a>
-    </span>
-    
     <span *ngIf="userIsAuthenticated && isAdmin()">
         <a routerLink='/cronograma' routerLinkActive="active">
             <mat-icon  aria-label="calendarioButton">calendar_today</mat-icon>
         </a>
     </span>
 
+    <span *ngIf="userIsAuthenticated">
+        <a routerLink='/preguntas' routerLinkActive="active">
+            <mat-icon  aria-label="preguntasButton">question_answer</mat-icon>
+        </a>
+    </span>
+
     <div *ngIf="!userIsAuthenticated">
         <a mat-button routerLink="/auth/login" routerLinkActive="mat-accent">Acceder</a>
     </div>
+
     <div *ngIf="!userIsAuthenticated">
         <a mat-button routerLink="/auth/signup" routerLinkActive="mat-accent">Registrarse</a>
     </div>
+
     <div *ngIf="userIsAuthenticated">
         <a mat-button (click)="onLogout()">Salir</a>
     </div> 
+
 </mat-toolbar>
 <router-outlet></router-outlet>
