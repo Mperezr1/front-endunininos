@@ -24,7 +24,7 @@ export class ModificarEliminarComponent implements OnInit {
     });
   }
 
-  putPregunta(form: NgForm){
+  putPreguntas(form: NgForm){
     if (form.invalid) {
       return;
     }
