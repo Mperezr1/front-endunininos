@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ConsultasService } from '../../../Services/consultas.service';
 import { NgForm } from "@angular/forms";
-import { Participante } from '../../../Models/Participante.model';
+import { Participante } from '../../../Models/participante.model';
 
 @Component({
   selector: 'app-asignacion-grupos',
